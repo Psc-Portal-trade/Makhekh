@@ -9,3 +9,6 @@
   .nav-pills .nav-link {
     border-radius: 0;
 }
+.Portfolio img {
+  width: 100%;
+}
