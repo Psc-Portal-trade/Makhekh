@@ -1,5 +1,12 @@
+/* منع التمرير الأفقي */
+body, html {
+  overflow-x: hidden;
+}
+
+/* تحسين السلايدر */
 section {
   background-color: #eff3f6;
+  overflow-x: hidden; /* منع التمرير الأفقي */
 }
 
 .testimonial-card {
@@ -10,37 +17,45 @@ section {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   margin-bottom: 150px;
-margin-left:10px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%; /* منع تجاوز العرض */
 }
 
 .testimonial-card img {
-  /* width: 80px;
-  height: 80px; */
   border-radius: 50%;
   margin-bottom: 15px;
+  max-width: 100%;
 }
 
+.carousel-inner {
+  overflow: hidden; /* إخفاء أي تجاوز */
+}
+
+/* تعديل مكان الأزرار لتكون خارج الكروت وعلى الجوانب */
 .carousel-control-prev,
 .carousel-control-next {
   position: absolute;
-  top: 35%;
-  transform: translateY(-35%);
-  width: 40px;
-  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
   background-color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* جعل الأزرار داخل حدود `container` لمنع السكورل */
 .carousel-control-prev {
-  left: -50px;
+  left: 0;
 }
 
 .carousel-control-next {
-  right: -50px;
+  right: 0;
 }
 
 .carousel-control-prev-icon,
@@ -48,14 +63,23 @@ margin-left:10px;
   filter: invert(1);
 }
 
-.header-h2{
-margin-bottom: 150px;}
+/* تحسين العرض على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .testimonial-card {
+    margin-bottom: 50px;
+  }
 
-.card-pic img{
-width: 40%;
-margin-top: -100px;
-}
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
 
-.carousel-inner{
-  overflow:visible;
+  .carousel-control-prev {
+    left: 10px; /* ضبط المسافة */
+  }
+
+  .carousel-control-next {
+    right: 10px;
+  }
 }

@@ -12,10 +12,10 @@
 
 
         <li class="nav-item">
-          <a class="nav-link text-black" href="#"><i class="fa-sharp fa-solid fa-globe"></i></a>
+          <a class="nav-link text-black" (click)="changeLang()" href="#"><i class="fa-sharp fa-solid fa-globe"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="register"><button class="btn btn-primary">التسجيل</button></a>
+          <a class="nav-link" routerLink="register"><button class="btn btn-primary">{{ "register" | transloco }}</button></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="login"><button class="btn btn-outline-primary">تسجيل الدخول</button></a>
