@@ -21,7 +21,6 @@ export class NavbarComponent {
         lang='en'
     } else {
       htmlTag.setAttribute('dir', 'rtl');
-
       htmlTag.setAttribute('lang', 'ar');
       this._translocoService.setActiveLang('ar');
       localStorage.setItem('lang', 'ar');
