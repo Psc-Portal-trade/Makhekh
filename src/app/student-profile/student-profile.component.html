@@ -1,0 +1,205 @@
+<div class="d-flex ">
+
+<!-- <app-sidebar-students></app-sidebar-students> -->
+
+<div class="container w-100 content-item">
+
+
+<div class="d-flex align-items-center">
+  <div class="position-relative text-end my-3">
+
+    <div class="first-letter">
+      <span>H</span>
+      <div class="profile-menu">
+        <div class="text-center">
+          <div class="d-flex align-items-center mb-3 gap-3">
+            <div class="first-letterr">
+              <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+                H
+              </span>
+            </div>
+            <div class="text-start">
+              <h5 class="mb-0">Name</h5>
+              <p class="text-muted mb-0">Email</p>
+            </div>
+          </div>
+         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+          <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+          <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }}</li>
+          <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+          <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item">{{ "second-navbar.Notifications" | transloco }}</li>
+          <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+          <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+          <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+<div class="mx-3 second-sec">
+  <i class="fa-solid fa-bell"></i>
+  <a class="pe-3 text-decoration-none text-black " routerLink="instructor-profile">  instructor View  <i class="fa-solid fa-people-arrows px-1"></i></a>
+</div>
+
+</div>
+
+
+
+
+
+<div>
+  <h2 class="mb-5 mt-5">{{pageTitle}}</h2>
+  <ul class="nav nav-tabs mb-4">
+    <li class="nav-item">
+      <a class="nav-link " [class.active]="activeTab === 'profile'" (click)="setActiveTab('profile')">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " [class.active]="activeTab === 'suggestions'" (click)="setActiveTab('suggestions')">Student Suggestions</a>
+    </li>
+  </ul>
+
+  <div class="row" id="profile" *ngIf="activeTab === 'profile'">
+    <div class="col-md-3 text-center">
+      <img [src]="profileImage" class="rounded-circle profile-img" style="width: 200px; height: 200px;" alt="Profile Photo" />
+
+      <!-- عرض زر Upload عند عدم وجود صورة -->
+      <div *ngIf="!isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2 justify-content-center">
+        <label for="file-input" class="btn btn-primary fs-6">Upload Photo</label>
+        <input type="file" id="file-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
+        <button class="btn text-primary border-0">Edit</button>
+      </div>
+
+
+      <!-- عرض زر Edit فقط بعد رفع الصورة -->
+
+      <div *ngIf="isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2 justify-content-center">
+        <button disabled type="submit" class="btn btn-primary">upload photo</button>
+        <label for="edit-input" class="btn text-primary border-0 fs-6">Edit</label>
+        <input type="file" id="edit-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
+      </div>
+
+    </div>
+    <div class="col-md-8">
+      <form >
+        <div class="mb-3">
+          <label for="firstName"  class="form-label">First Name</label>
+          <input type="text"  class="form-control" id="firstName" />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text"   class="form-control" id="lastName" />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email"  class="form-control" id="email" />
+        </div>
+        <div class="mb-3">
+          <label for="occupation" class="form-label">Occupation</label>
+          <input type="text" class="form-control" id="occupation" />
+        </div>
+        <div class="mb-3">
+          <label for="facebook" class="form-label">Facebook</label>
+          <input type="text" class="form-control" id="facebook" placeholder="Copy Link" />
+        </div>
+        <div class="mb-3">
+          <label for="linkedin" class="form-label">LinkedIn</label>
+          <input type="text" class="form-control" id="linkedin" placeholder="Copy Link" />
+        </div>
+        <div class="mb-3">
+          <label for="language" class="form-label">Language</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa fa-globe"></i> <!-- أيقونة الكرة الأرضية من Bootstrap -->
+            </span>
+
+          <select class="form-select" id="language">
+            <option value="en" selected>English</option>
+            <option value="ar">Arabic</option>
+          </select>
+        </div>
+        </div>
+        <button disabled type="submit" class="btn btn-primary me-2">Save</button>
+        <button type="button" class="btn text-primary border-0">Edit</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="activeTab === 'suggestions'" class="mb-4">
+      <form class="mb-2">
+        <div class="row">
+          <!-- Address -->
+          <div class="col-md-6 mb-3">
+            <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address">
+          </div>
+
+          <!-- File Upload -->
+          <div class="col-md-6 mb-3">
+            <label for="file" class="form-label">File</label>
+            <div class="input-group">
+              <input type="file" class="form-control text-muted" id="file" (change)="Selected($event)">
+            </div>
+          </div>
+
+          <!-- Add Proposal -->
+          <div class="col-md-6 mb-3">
+            <label for="proposal" class="form-label">Add Proposal <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="proposal" [(ngModel)]="proposal" name="proposal">
+          </div>
+
+          <!-- Proposal Description -->
+          <div class="col-md-6 mb-3">
+            <label for="description" class="form-label">Proposal Description</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
+          </div>
+
+          <!-- Category Dropdown -->
+          <div class="col-md-6 mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category" [(ngModel)]="category" name="category">
+              <option value="design">Design</option>
+              <option value="development">Development</option>
+              <option value="marketing">Marketing</option>
+            </select>
+          </div>
+
+          <!-- Courses Dropdown -->
+          <div class="col-md-6 mb-3">
+            <label for="courses" class="form-label">Courses</label>
+            <select class="form-select" id="courses" [(ngModel)]="courses" name="courses">
+              <option value="web-design">Web Design</option>
+              <option value="ux-ui">UX/UI</option>
+              <option value="full-stack">Full Stack</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Save Button -->
+        <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
+
+
+

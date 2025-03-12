@@ -1,0 +1,61 @@
+<app-second-nav></app-second-nav>
+<section class="py-5">
+  <div class="container mt-4">
+    <h2>Shopping Cart</h2>
+    <p>{{ cartItems.length }} courses in cart</p>
+
+    <div *ngFor="let item of cartItems; let i = index" class="row border-bottom py-3">
+      <div class="col-md-8">
+        <div class="row">
+        <div class="col-md-4">
+          <div class="vid-img">
+            <img alt="" [src]="item.src">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h5 class="py-2">{{ item.title }}</h5>
+          <p >{{ item.rate }}
+            <span [innerHTML]="item.stars"> </span>
+            <span class="text-muted"> {{ item.watched }}</span>
+          </p>
+          <p><strong>Price:</strong> {{ item.price }} LE</p>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-colors ps-0 " (click)="removeItem(item.id)">Remove</button>
+
+          <div>
+            <button class="btn btn-color ps-0">Move to wishlist</button>
+          </div>
+
+
+
+        </div>
+        </div>
+
+
+
+
+
+      </div>
+      <div class="col-md-4 ">
+
+      </div>
+    </div>
+
+    <div class="py-3">
+      <h4>Total Price: <strong>{{ totalPrice }} LE</strong></h4>
+      <div class="d-flex">
+        <div class="py-2 pe-2"><button class="btn btn-primary" (click)="checkout()">Checkout</button></div>
+        <div class="py-2 "><button class="btn btn-outline-primary ">Continue Shopping</button></div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+<app-recently-wished-listed></app-recently-wished-listed>
+<app-similar-courses></app-similar-courses>
+

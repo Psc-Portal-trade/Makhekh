@@ -1,0 +1,48 @@
+<app-second-nav></app-second-nav>
+<app-courses></app-courses>
+
+<section class="py-5">
+  <div class="container">
+    <!-- حقل البحث -->
+    <input
+      type="text"
+      class="form-control mb-3"
+      placeholder="Search for a course..."
+      [(ngModel)]="searchQuery"
+    />
+
+    <div class="row">
+      <div *ngFor="let course of paginatedCourses" class="col-12 col-md-6 col-lg-4 mb-4">
+        <div class="card lecture-card">
+          <div class="video-thumbnail">
+            <div class="vid-img">
+              <img alt="" [src]="course.src">
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ course.title }}</h5>
+            <p class="card-text small text-muted">{{ course.describtion }}</p>
+            <p class="content">{{ course.rate }}
+              <span [innerHTML]="course.stars"> </span>
+              <span class="text-muted"> {{ course.watched }}</span>
+            </p>
+            <p>{{ course.price }} LE</p>
+            <div class="d-flex justify-content-between">
+              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+            </div>  </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- أزرار التنقل -->
+    <div class="pagination">
+      <button *ngFor="let page of totalPagesArray" (click)="changePage(page)" [class.active]="page === currentPage">
+        {{ page }}
+      </button>
+    </div>
+  </div>
+</section>
+

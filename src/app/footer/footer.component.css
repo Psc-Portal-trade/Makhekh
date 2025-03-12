@@ -24,3 +24,6 @@ border-bottom: 1px solid black;}
   font-size: 16px;
   font-weight: 700;
 }
+footer{
+  box-shadow: -4px -4px 5px #E2E2E2;
+}

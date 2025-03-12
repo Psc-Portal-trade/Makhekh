@@ -1,0 +1,140 @@
+<div class="d-flex">
+
+  <app-sidebar></app-sidebar>
+
+
+    <div class="container w-100 content-item ">
+
+      <div class="d-flex align-items-center">
+        <div class="position-relative text-end my-3">
+
+          <div class="first-letter">
+            <span>H</span>
+            <div class="profile-menu">
+              <div class="text-center">
+                <div class="d-flex align-items-center mb-3 gap-3">
+                  <div class="first-letterr">
+                    <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+                      H
+                    </span>
+                  </div>
+                  <div class="text-start">
+                    <h5 class="mb-0">Name</h5>
+                    <p class="text-muted mb-0">Email</p>
+                  </div>
+                </div>
+               </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+                <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+                <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }} </li>
+                <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+                <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+                <li class="divider"></li>
+
+                <li class="list-group-item" >{{ "second-navbar.Notifications" | transloco }}</li>
+                <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+                <li class="divider"></li>
+
+                <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+                <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+                <li class="divider"></li>
+
+                <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+                <li class="divider"></li>
+
+                <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+                <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+
+      <div class="mx-3 second-sec">
+        <i class="fa-solid fa-bell"></i>
+        <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a>
+      </div>
+
+      </div>
+
+
+        <h2 class="mb-5 mt-5">Instructor Profile</h2>
+
+
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <img [src]="profileImg" class="rounded-circle profile-img" style="width: 200px; height: 200px;" alt="Profile Photo" />
+
+            <!-- عرض زر Upload عند عدم وجود صورة -->
+            <div *ngIf="!isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2 justify-content-center">
+              <label for="file-input" class="btn btn-primary fs-6">Upload Photo</label>
+              <input type="file" id="file-input" class="d-none" accept="image/*" (change)="on($event)" />
+              <button class="btn text-primary border-0">Edit</button>
+            </div>
+
+
+            <!-- عرض زر Edit فقط بعد رفع الصورة -->
+
+            <div *ngIf="isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2 justify-content-center">
+              <button disabled type="submit" class="btn btn-primary">upload photo</button>
+              <label for="edit-input" class="btn text-primary border-0 fs-6">Edit</label>
+              <input type="file" id="edit-input" class="d-none" accept="image/*" (change)="on($event)" />
+            </div>
+
+          </div>
+          <div class="col-md-8">
+            <form >
+              <div class="mb-3">
+                <label for="firstName"  class="form-label">First Name</label>
+                <input type="text"  class="form-control" id="firstName" />
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text"   class="form-control" id="lastName" />
+              </div>
+              <div class="mb-3">
+                <label for="address" class="form-label">Main Address</label>
+                <input type="text"  class="form-control" id="address" />
+              </div>
+
+              <div class=" mb-3 ">
+                <div class="input-group flex-column">
+                <label for="file" class="form-label">CV</label>
+                <input type="file" class="form-control text-muted w-100" id="file" (change)="Select($event)">
+              </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email"  class="form-control" id="email" />
+              </div>
+              <div class="mb-3">
+                <label for="youtube" class="form-label">Youtube</label>
+                <input type="text" class="form-control" id="youtube" placeholder="Copy Link" />
+              </div>
+              <div class="mb-3">
+                <label for="facebook" class="form-label">Facebook</label>
+                <input type="text" class="form-control" id="facebook" placeholder="Copy Link" />
+              </div>
+              <div class="mb-3">
+                <label for="linkedin" class="form-label">LinkedIn</label>
+                <input type="text" class="form-control" id="linkedin" placeholder="Copy Link" />
+              </div>
+              <div class="mb-3">
+                <label for="x" class="form-label">X</label>
+                <input type="text" class="form-control" id="x" placeholder="Copy Link" />
+              </div>
+
+
+
+              <button disabled type="submit" class="btn btn-primary me-2">Save</button>
+              <button type="button" class="btn text-primary border-0">Edit</button>
+            </form>
+          </div>
+        </div>
+
+
+
+
+

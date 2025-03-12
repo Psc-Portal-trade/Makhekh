@@ -1,5 +1,161 @@
 {
-  "welcome":"مرحبا",
-  "register":"التسجيل"
+
+
+  "navbar":{
+  "register":"التسجيل",
+  "login":"تسجيل الدخول",
+  "teach in Makhekh":"درس على مخيخ",
+  "about us":"من نحن",
+  "home":"الرئيسية",
+  "search":"بحث"
+},
+"footer":{
+  "discover more skills and learn with us":"اكتشف المزيد من المهارات وتعلم معنا",
+  "hurry up and get your certificate":"سارع بالحصول على شهادتك",
+  "legal and Accessibility":" القانونية وإمكانية الوصول ",
+  "terms and Conditions":"الشروط والأحكام",
+  "privacy policy":"سياسة الخصوصية",
+  "about makhekh":"عن مخيخ",
+  "about us":"من نحن",
+  "customer Reviews":"اراء العملاء",
+  "contact Us":"تواصل معنا"
+},
+"second-navbar":{
+  "register":"التسجيل",
+  "login":"تسجيل الدخول",
+  "instructor":"المدربين",
+  "about us":"من نحن",
+  "home":"الرئيسية",
+  "search":"بحث",
+  "my courses":"دوراتي",
+  "My Cart":"عربة التسوق",
+  "Wishlist":"المفضلة",
+  "Instructor Dashboard":"لوحة  المدرب",
+  "Notifications":"الأشعارات",
+  "Messages":"الرسائل",
+  "Account Settings":"إعدادات الحساب",
+  "Payment Methods":"طرق الدفع",
+  "Language":"اللغة",
+  "Help and Support":"المساعدة والدعم",
+  "Log out":"تسجيل الخروج",
+  "Student Profile":"الملف الشخصي للطالب",
+  "Instructor Profile":"الملف الشخصي للمدرب"
+
+
+
+
+
+
+
+
+},
+
+
+"home":{
+
+  "header-section":{
+        "discover our variety of courses.":"اكتشف مجموعة متنوعة من الدورات لدينا.",
+        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque":"لوريم إيبسوم دولور سيت أميت،  إيليت. لوريم إيبسوم دولور سيت أميت،  إيليت.لوريم إيبسوم دولور سيت أميت،  إيليت.",
+        "find Courses":"البحث عن الدورات"
+  },
+  "secondary-section-home":{
+    "all the skills you need in one place.":"جميع المهارات التي تحتاجها في مكان واحد.",
+    "development":"تطوير",
+    "delivering productivity":"تقديم الإنتاجية",
+    "health and Fitness":"الصحة واللياقة البدنية",
+    "marketing":"تسويق",
+    "administration":"إدارة",
+    "design":"تصميم",
+    "information Technology and Software":"تكنولوجيا المعلومات والبرمجيات",
+    "finance and Accounting":"المالية والمحاسبة",
+    "view all JavaScript courses":"عرض جميع دورات جافا اسكريبت ",
+    "view all React courses":"عرض جميع دورات  ريأكت",
+    "view all Angular courses":"عرض جميع دورات  انجيولار",
+    "view all Java courses":"عرض جميع دورات  جافا",
+    "view all Android courses":"عرض جميع دورات  اندرويد",
+    "view all CSS  courses":"عرض جميع دورات CSS",
+    "view all Web Development courses":"عرض جميع دورات تطوير الويب"
+  } ,
+  "third-section-home":{
+    "invest in your career with us":"استثمر في مسيرتك المهنية معنا",
+    "writing an English paragraph":"كتابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة ابة بابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة رجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة ",
+    "Get Offers":"احصل على العروض",
+    "flexible Learning":"التعلم المرن",
+    "get Your Certificate":"احصل على شهادتك",
+    "explore Courses":"استكشف الدورات",
+    "writing an English Paragraph is one of the most important ways to teach English learners to write":"كتابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة التعلم الم"
+  },
+  "fourth-section-home":{
+  "join thousands of learners achieving their goals.":"انضم إلى آلاف المتعلمين الذين يحققون أهدافهم",
+  "daniela Turk":"دانييلا تورك",
+  "business Administration":"إدارة الأعمال",
+  "lorem Ipsum is simply dummy text of the printing industry.":" هو ببساطة نص شكلي (بمعنى أنه ليس بالضرورة أن يكون نصًا) يُستخدم في صناعة الطباعة.",
+  "ahmed Raouf":"أحمد رؤوف",
+  "engineering University":"جامعة الهندسة",
+  "lydia Anas":"ليديا أنس",
+  "frontend Engineer":"مهندس واجهة أمامية",
+  "omar Khaled":"عمر خالد",
+  "software Engineer":"مهندس برمجيات",
+  "sara Mahmoud":"سارة محمد",
+  "uI/UX Designer":"مصمم واجهة المستخدم وتجربة المستخدم"
+  }
+
+
+
+
+},
+
+
+
+
+
+
+
+
+
+"login":{
+  "login in to your account":"تسجيل الدخول إلى حسابك",
+  "email":"البريد الألكتروني",
+  "password":"كلمة السر",
+  "log in":"اشتراك",
+  "Forget password":"هل نسيت كلمة السر؟",
+  "dont have account":"ليس لديك حساب؟",
+  "Other login options":"خيارات اخري",
+  "sign up":"تسجيل",
+  "email required":"البريد الإلكتروني مطلوب",
+  "enter a valid email address.":"أدخل بريد إلكتروني صالح",
+  "Password required":"كلمة المرور مطلوبة",
+  "enter a valid password.":"أدخل كلمة مرور صالحة",
+  "Password must contain at least one letter, one number, and one special character.":"يجب أن تحتوي كلمة المرور على حرف واحد على الأقل ورقم واحد وحرف خاص واحد"
+  },
+
+"about":{
+  "start teaching with us":"ابدأ التدريس معنا ",
+  "be a teacher and help learners":"البريد الألكتروني",
+  "start now":"أبدأ الأن",
+  "why_join_us": "لماذا تنضم إلينا؟",
+  "get_rewards": "احصل على المكافآت",
+  "get_rewards_desc": "وسع شبكة علاقاتك، وابنِ خبرتك، واكسب المال",
+  "motivate_learners": "حفّز المتعلمين",
+  "motivate_learners_desc": "ساعد المتعلمين على تحقيق أهدافهم، وتوسيع معارفهم، وتطوير مسيرتهم المهنية",
+  "teach_your_way": "درّس بطريقتك",
+  "teach_your_way_desc": "يمكنك تحميل مقاطع الفيديو المسجلة الخاصة بك، أو بدء بث مباشر. أضف محتواك الخاص",
+  "explain_courses": "دعنا نشرح نوع الدورات التي ستقوم بإنشائها",
+  "online_questions": "الأسئلة عبر الإنترنت / للتحميل",
+  "live_recorded_courses": "الدورات التعليمية المباشرة المسجلة",
+  "live_courses": "الدورات التعليمية المباشرة",
+  "recorded_courses": "الدورات التعليمية المسجلة",
+  "recorded_courses_desc": "يمكنك تحميل فيديو مسجل على موقعنا وزيادة عدد المتعلمين. حدد جمهورك المستهدف، اختر موضوعًا واعدًا وقدم الفائدة للمتعلمين الآخرين",
+  "testimonial_quote_1": "أنا فخور بوجودي هنا. على الرغم من أن العمل كمدرس بدوام كامل يعد عملاً شاقًا، إلا أنه يتيح لك العمل متى وأين وكيفما تريد.",
+  "testimonial_author_1": "ندي محسن",
+  "testimonial_role_1": "مصمم تجربة المستخدم وواجهة المستخدم",
+  "testimonial_quote_2": "أنا فخور بوجودي هنا. على الرغم من أن العمل كمدرس بدوام كامل يعد عملاً شاقًا، إلا أنه يتيح لك العمل متى وأين وكيفما تريد.",
+  "testimonial_author_2": "ندي محسن",
+  "testimonial_role_2": "مصمم تجربة المستخدم وواجهة المستخدم",
+  "previous": "السابق"
+
+
+
+}
 
 }

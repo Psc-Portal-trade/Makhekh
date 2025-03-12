@@ -1,79 +1,68 @@
-
-<section class="mb-5 pb-5">
-    <div class="container pt-5">
-     <div class="row">
+<app-navbar></app-navbar>
 
 
-         <div class="col-md-6 form  justify-content-center align-items-center">
+
+<section class=" pb-5">
+  <div class="container pt-5">
+   <div class="row">
+
+      <div class="col-md-6 form1 pt-0  register-img justify-content-center">
+          <img src="assets/login.png" alt="">
+      </div>
+       <div class="col-md-6 form pt-5 justify-content-center align-items-center">
 
 
-           <h2 class="text-end"> تسجيل الدخول إلى حسابك</h2>
-           <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
-             <div>
-                 <label for="email"></label>
-                 <input id="email" type="email" class="form-control border-black text-end .form-input" placeholder="البريد الألكتروني" formControlName="email">
-             </div>
-             @if(loginForm.get('email')?.errors && loginForm.get('email')?.touched){
-                <div class="alert alert-danger w-70">
-                    @if(loginForm.get('email')?.getError('required') )
-                    {
-                        <p class="m-0 text-end">البريد الإلكتروني مطلوب</p>
-                    }
-                    @else if (loginForm.get('email')?.getError('email')) {
-                        <p class="m-0 text-end">أدخل بريد إلكتروني صالح</p>
-                    }
-                </div>
-             }
-             <div>
-                 <label for="password"></label>
-                 <input id="password" type="password" class="form-control border-black text-end .form-input" placeholder="كلمة السر" formControlName="password">
-             </div>
-             @if(loginForm.get('password')?.errors && loginForm.get('password')?.touched){
-                <div class="alert alert-danger w-70">
-                    @if(loginForm.get('password')?.getError('required') )
-                    {
-                        <p class="m-0 text-end">كلمة المرور مطلوبة</p>
-                    }
-                    @else if (loginForm.get('password')?.getError('pattern')) {
-                        <p class="m-0 text-end">أدخل كلمة مرور صالحة</p>
-                        <p class="m-0 text-end">يجب أن تحتوي كلمة المرور على حرف واحد على الأقل ورقم واحد وحرف خاص واحد</p>
-                    }
-                    </div>
-                }
-             <button [disabled]="loginForm.invalid" type="submit" class="btn bg-primary text-white w-100 mt-2">اشتراك</button>
+         <h2 class="">{{"login.login in to your account" | transloco}}</h2>
+         <form [formGroup]="loginForm" >
+           <div>
+               <label for="email"></label>
+               <input  id="email" type="email" class="form-control border-black form-input" [attr.placeholder]="'login.email' | transloco" formControlName="email">
+                          </div>
 
-            <div class="text-center pt-2">
-                <a  href="#" class="">هل نسيت كلمة السر؟ </a>
+           <div>
+               <label for="password"></label>
+               <input id="password" type="password" class="form-control border-black .form-input" [attr.placeholder]="'login.password' | transloco" formControlName="password">
+           </div>
 
-            </div>
-           </form>
-           <div class="container-section">
-            <div class="line"></div>
-            <div class="text">اختيارات أخرى</div>
-            <div class="line"></div>
+           <button type="submit" routerLink="studentHome" class="btn bg-primary text-white w-100 mt-2">{{"login.log in" | transloco}}</button>
+
+          <div class="text-center pt-2">
+              <a  href="#" class="">{{"login.Forget password" | transloco}}</a>
+
           </div>
-          <div class="social-container">
-            <div class="social-box">
-                <i class="fa-brands fa-google"></i>
-            </div>
-            <div class="social-box">
-                <i class="fa-brands fa-facebook"></i>
-            </div>
-            <div class="social-box">
-                <i class="fa-brands fa-apple"></i>
-            </div>
+         </form>
+         <div class="container-section">
+          <div class="line"></div>
+          <div class="text">{{"login.Other login options" | transloco}}</div>
+          <div class="line">
+
+          </div>
         </div>
+        <div class="social-container">
+          <div class="social-box">
+              <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="social-box">
+              <i class="fa-brands fa-facebook"></i>
+          </div>
+          <div class="social-box">
+              <i class="fa-brands fa-apple"></i>
+          </div>
+      </div>
 
-        <div class="container mt-3">
-          <button class="w-100 p-3 bg-white border-0 rounded-2">ليس لديك حساب ؟ <a class="text-decoration-underline" routerLink="register">إنشاء حساب جديد </a></button>
-        </div>
+      <div class="container mt-3">
+        <button class="w-100 p-3 bg-white border-0 rounded-2">{{"login.dont have account" | transloco}} <a class="text-decoration-underline" routerLink="register">{{"login.sign up" | transloco}}</a></button>
+      </div>
 
-         </div>
-         <div class="col-md-6 form1 pt-2 text-end register-img justify-content-center">
-            <img src="assets/login.png" alt="">
-         </div>
+       </div>
 
 
-     </div>
-    </div>
- </section>
+
+   </div>
+  </div>
+</section>
+
+
+
+
+

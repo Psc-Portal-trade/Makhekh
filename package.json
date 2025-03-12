@@ -22,7 +22,10 @@
     "@ngneat/transloco": "^6.0.4",
     "@ngneat/transloco-locale": "^5.1.2",
     "bootstrap": "^5.3.3",
+    "jspdf": "^3.0.0",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
+    "swiper": "^11.2.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
