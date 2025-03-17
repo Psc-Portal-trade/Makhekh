@@ -20,15 +20,679 @@ export class FinanceCourseComponent implements OnInit{
   itemsPerPage = 6;
 
   lectures = [
-    { id: 58, title: 'How the internet works', rate: 5, src: 'assets/course1.png', watched: '(1.5k)', price: 4000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false,isInWishList: false},
-    { id: 59, title: 'The Complete PHP Full', rate: 2.5, src: 'assets/course2.png', watched: '(450)', price: 3500, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>' ,isInCart: false,isInWishList: false},
-    { id: 60, title: 'Pre Programming everything you need', rate: 3, src: 'assets/course3.png', watched: '(950)', price: 1000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
-    { id: 61, title: 'The Complete PHP Full', rate: 4, src: 'assets/course1.png', watched: '(1k)', price: 2000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
-    { id: 62, title: 'Pre Programming everything you need', rate: 2, src: 'assets/course2.png', watched: '(800)', price: 2500, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
-    { id: 63, title: 'How the internet works', rate: 5, src: 'assets/course3.png', watched: '(1.2k)', price: 5000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
-    { id: 64, title: 'How the internet works', rate: 5, src: 'assets/course3.png', watched: '(1.2k)', price: 5000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
-    { id: 65, title: 'How the internet works', rate: 5, src: 'assets/course3.png', watched: '(1.2k)', price: 5000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
-    { id: 66, title: 'How the internet works', rate: 5, src: 'assets/course3.png', watched: '(1.2k)', price: 5000, describtion: 'Youaccet Training', stars: '<i class="fa-solid fa-star"></i>',isInCart: false ,isInWishList: false},
+    {
+      "courseType": "Live Streamed Educational Courses",
+      "category": "Finance & Accounting",
+      "learningObjectives": "z",
+      "requirements": "z",
+      "targetAudience": "z",
+      "courseTitle": "How the internet works",
+      "schedules": [
+          {
+              "id":"1",
+              "courseTitle": "z",
+              "date": "2025-03-11",
+              "time": "13:38",
+              "lecturerName": "z",
+              "registered": 10,
+              "status": "zz",
+              "joinLink": "zzz",
+              "limit": 8
+          },
+          {
+            "id":"2",
+              "courseTitle": "xxcx",
+              "date": "2025-03-21",
+              "time": "15:36",
+              "lecturerName": "h",
+              "registered": 2,
+              "status": "hh",
+              "joinLink": "jbljk",
+              "limit": 9
+          }
+      ],
+      "landingPage": {
+          "title": "sad",
+          "description": "ssdd",
+          "language": "Arabic",
+          "level": "Intermediate",
+          "category": "Design",
+          "duration": "Month",
+          "lecturer": "a",
+          "lecturerDescription": "a",
+          "photo": {},
+          "video": {}
+      },
+      "pricing": {
+          "currency": "USD",
+          price: 4000,
+          "priceTier": "Free",
+          "promoLink": "",
+          "selectedVoucher": "best_current_price"
+      },
+      "coupons": [
+          {
+              "code": "a",
+              "status": "Free",
+              "users": "Limited",
+              "startDate": "",
+              "endDate": ""
+          }
+      ],
+      isInWishlist: false,
+      isInCart: false,
+      id: 43,
+      rate: 4.7,
+      ratingsCount: 9,
+      instructor: 'Ahmed Abbas',
+      instructorImage: "assets/image.jpg",
+      lastUpdate: '11/2025',
+      language: 'English',
+      seatsLeft: 10,
+      watched: 107,
+      src: 'assets/course1.png',
+    },
+    {
+      "courseType": "Live Streamed Educational Courses",
+      "category": "Finance & Accounting",
+      "learningObjectives": "z",
+      "requirements": "z",
+      "targetAudience": "z",
+      "courseTitle": "How the internet works",
+      "schedules": [
+          {
+              "id":"1",
+              "courseTitle": "z",
+              "date": "2025-03-11",
+              "time": "13:38",
+              "lecturerName": "z",
+              "registered": 10,
+              "status": "zz",
+              "joinLink": "zzz",
+              "limit": 8
+          },
+          {
+            "id":"2",
+              "courseTitle": "xxcx",
+              "date": "2025-03-21",
+              "time": "15:36",
+              "lecturerName": "h",
+              "registered": 2,
+              "status": "hh",
+              "joinLink": "jbljk",
+              "limit": 9
+          }
+      ],
+      "landingPage": {
+          "title": "sad",
+          "description": "ssdd",
+          "language": "Arabic",
+          "level": "Intermediate",
+          "category": "Design",
+          "duration": "Month",
+          "lecturer": "a",
+          "lecturerDescription": "a",
+          "photo": {},
+          "video": {}
+      },
+      "pricing": {
+          "currency": "USD",
+          price: 4000,
+          "priceTier": "Free",
+          "promoLink": "",
+          "selectedVoucher": "best_current_price"
+      },
+      "coupons": [
+          {
+              "code": "a",
+              "status": "Free",
+              "users": "Limited",
+              "startDate": "",
+              "endDate": ""
+          }
+      ],
+      isInWishlist: false,
+      isInCart: false,
+      id: 44,
+      rate: 4.7,
+      ratingsCount: 9,
+      instructor: 'Ahmed Abbas',
+      instructorImage: "assets/image.jpg",
+      lastUpdate: '11/2025',
+      language: 'English',
+      seatsLeft: 10,
+      watched: 107,
+      src: 'assets/course2.png',
+    },
+    {
+      "courseType": "Live Streamed Educational Courses",
+      "category": "Finance & Accounting",
+      "learningObjectives": "z",
+      "requirements": "z",
+      "targetAudience": "z",
+      "courseTitle": "The Complete PHP Full",
+      "schedules": [
+          {
+
+              "courseTitle": "z",
+              "date": "2025-03-11",
+              "time": "13:38",
+              "lecturerName": "z",
+              "registered": 10,
+              "status": "zz",
+              "joinLink": "zzz",
+              "limit": 8
+          },
+          {
+
+              "courseTitle": "xxcx",
+              "date": "2025-03-21",
+              "time": "15:36",
+              "lecturerName": "h",
+              "registered": 2,
+              "status": "hh",
+              "joinLink": "jbljk",
+              "limit": 9
+          }
+      ],
+      "landingPage": {
+          "title": "sad",
+          "description": "ssdd",
+          "language": "Arabic",
+          "level": "Intermediate",
+          "category": "Design",
+          "duration": "Month",
+          "lecturer": "a",
+          "lecturerDescription": "a",
+          "photo": {},
+          "video": {}
+      },
+      "pricing": {
+          "currency": "USD",
+          price: 4000,
+          "priceTier": "Free",
+          "promoLink": "",
+          "selectedVoucher": "best_current_price"
+      },
+      "coupons": [
+          {
+              "code": "a",
+              "status": "Free",
+              "users": "Limited",
+              "startDate": "",
+              "endDate": ""
+          }
+      ],
+      isInWishlist: false,
+      isInCart: false,
+      id: 45,
+      rate: 4.7,
+      ratingsCount: 9,
+      instructor: 'Ahmed Abbas',
+      instructorImage: "assets/image.jpg",
+      lastUpdate: '11/2025',
+      language: 'English',
+      seatsLeft: 10,
+      watched: 107,
+      src: 'assets/course1.png',
+    },
+    {
+      "courseType": "Live Streamed Educational Courses",
+      "category": "Finance & Accounting",
+      "learningObjectives": "z",
+      "requirements": "z",
+      "targetAudience": "z",
+      "courseTitle": "The Complete PHP Full",
+      "schedules": [
+          {
+              "id":"1",
+              "courseTitle": "z",
+              "date": "2025-03-11",
+              "time": "13:38",
+              "lecturerName": "z",
+              "registered": 10,
+              "status": "zz",
+              "joinLink": "zzz",
+              "limit": 8
+          },
+          {
+            "id":"2",
+              "courseTitle": "xxcx",
+              "date": "2025-03-21",
+              "time": "15:36",
+              "lecturerName": "h",
+              "registered": 2,
+              "status": "hh",
+              "joinLink": "jbljk",
+              "limit": 9
+          }
+      ],
+      "landingPage": {
+          "title": "sad",
+          "description": "ssdd",
+          "language": "Arabic",
+          "level": "Intermediate",
+          "category": "Design",
+          "duration": "Month",
+          "lecturer": "a",
+          "lecturerDescription": "a",
+          "photo": {},
+          "video": {}
+      },
+      "pricing": {
+          "currency": "USD",
+          price: 4000,
+          "priceTier": "Free",
+          "promoLink": "",
+          "selectedVoucher": "best_current_price"
+      },
+      "coupons": [
+          {
+              "code": "a",
+              "status": "Free",
+              "users": "Limited",
+              "startDate": "",
+              "endDate": ""
+          }
+      ],
+      isInWishlist: false,
+      isInCart: false,
+      id: 46,
+      rate: 4.7,
+      ratingsCount: 9,
+      instructor: 'Ahmed Abbas',
+      instructorImage: "assets/image.jpg",
+      lastUpdate: '11/2025',
+      language: 'English',
+      seatsLeft: 10,
+      watched: 107,
+      src: 'assets/course3.png',
+    },
+    {
+      "courseType": "Recorded Educational Courses",
+      "category": "Development",
+      "learningObjectives": "qqqqqqqqqq",
+      "requirements": "qqqqqqqqqqqqqqqqqq",
+      "targetAudience": "qqqqqqqqqqqqqqqqqqqqq",
+      "courseTitle": "database",
+      "curriculum": [
+          {
+              "name": "w",
+              "lectures": [
+                  {
+                      "title": "w",
+                      "video": {},
+                      "videoName": "[EgyBest].Aashiqui.2.2013.720p.x264.mp4",
+                      "description": "w",
+                      "activeTab": "video",
+                      "duration":"10 min"
+                  },
+                  {
+                      "title": "www",
+                      "video": {},
+                      "videoName": "[EgyBest].Ashtata.Ashtwt.2004.BluRay.720p.x264.mp4",
+                      "description": "www",
+                      "activeTab": "video",
+                      "duration":"14 min"
+                  },
+                  {
+                      "title": "www",
+                      "video": {},
+                      "videoName": "[EgyBest].Al.Ghasala.2020.WEB-DL.720p.x264.mp4",
+                      "description": "qq",
+                      "activeTab": "video",
+                      "duration":"17 min"
+                  }
+              ]
+          },
+          {
+              "name": "www",
+              "lectures": [
+                  {
+                      "title": "www",
+                      "video": {},
+                      "videoName": "[EgyBest].Ashtata.Ashtwt.2004.BluRay.720p.x264.mp4",
+                      "description": "ww",
+                      "activeTab": "video",
+                      "duration":"14 min"
+                  },
+                  {
+                      "title": "www",
+                      "video": {},
+                      "videoName": "[EgyBest].Bang.Bang.2014.BluRay.480p.x264.mp4",
+                      "description": "wqw",
+                      "activeTab": "description",
+                      "duration":"10 min"
+                  },
+                  {
+                      "title": "www",
+                      "video": {},
+                      "videoName": "[EgyBest].Bang.Bang.2014.BluRay.480p.x264.mp4",
+                      "description": "qweq",
+                      "activeTab": "description",
+                      "duration":"14 min"
+                  }
+              ]
+          }
+      ],
+      "landingPage": {
+          "title": "qww",
+          "description": "qq",
+          "language": "English",
+          "level": "Advanced",
+          "category": "Development",
+          "duration": "Week",
+          "video": {},
+          "photo": {},
+          "lecturer": "ww",
+          "lecturerDescription": "ww"
+      },
+      "pricing": {
+          "currency": "USD",
+          price: 5000,
+          "priceTier": "Free",
+          "promoLink": "",
+          "selectedVoucher": "best_current_price",
+          "voucherOptions": [
+              {
+                  "value": "best_current_price",
+                  "label": "Best current price",
+                  "features": [
+                      "Fixed price",
+                      "Unlimited quantity",
+                      "Limited validity period"
+                  ]
+              },
+              {
+                  "value": "custom_price",
+                  "label": "Custom price",
+                  "features": [
+                      "Select a price between two numbers",
+                      "Unlimited quantity",
+                      "Limited validity period"
+                  ]
+              }
+          ]
+      },
+      "coupons": [
+          {
+              "code": "",
+              "status": "Free",
+              "users": "Limited",
+              "startDate": "",
+              "endDate": ""
+          }
+      ],
+      isInWishlist: false,
+      isInCart: false,
+      id: 47,
+      rate: 4.7,
+      ratingsCount: 9,
+      instructor: 'Ahmed Abbas',
+      instructorImage: "assets/image.jpg",
+      lastUpdate: '11/2025',
+      language: 'English',
+      seatsLeft: 10,
+      watched: 107,
+      src: 'assets/course2.png',
+  },
+  {
+    "courseType": "Recorded Educational Courses",
+    "category": "Development",
+    "learningObjectives": "qqqqqqqqqq",
+    "requirements": "qqqqqqqqqqqqqqqqqq",
+    "targetAudience": "qqqqqqqqqqqqqqqqqqqqq",
+    "courseTitle": "database",
+    "curriculum": [
+        {
+            "name": "w",
+            "lectures": [
+                {
+                    "title": "w",
+                    "video": {},
+                    "videoName": "[EgyBest].Aashiqui.2.2013.720p.x264.mp4",
+                    "description": "w",
+                    "activeTab": "video",
+                    "duration":"10 min"
+                },
+                {
+                    "title": "www",
+                    "video": {},
+                    "videoName": "[EgyBest].Ashtata.Ashtwt.2004.BluRay.720p.x264.mp4",
+                    "description": "www",
+                    "activeTab": "video",
+                    "duration":"14 min"
+                },
+                {
+                    "title": "www",
+                    "video": {},
+                    "videoName": "[EgyBest].Al.Ghasala.2020.WEB-DL.720p.x264.mp4",
+                    "description": "qq",
+                    "activeTab": "video",
+                    "duration":"17 min"
+                }
+            ]
+        },
+        {
+            "name": "www",
+            "lectures": [
+                {
+                    "title": "www",
+                    "video": {},
+                    "videoName": "[EgyBest].Ashtata.Ashtwt.2004.BluRay.720p.x264.mp4",
+                    "description": "ww",
+                    "activeTab": "video",
+                    "duration":"14 min"
+                },
+                {
+                    "title": "www",
+                    "video": {},
+                    "videoName": "[EgyBest].Bang.Bang.2014.BluRay.480p.x264.mp4",
+                    "description": "wqw",
+                    "activeTab": "description",
+                    "duration":"10 min"
+                },
+                {
+                    "title": "www",
+                    "video": {},
+                    "videoName": "[EgyBest].Bang.Bang.2014.BluRay.480p.x264.mp4",
+                    "description": "qweq",
+                    "activeTab": "description",
+                    "duration":"14 min"
+                }
+            ]
+        }
+    ],
+    "landingPage": {
+        "title": "qww",
+        "description": "qq",
+        "language": "English",
+        "level": "Advanced",
+        "category": "Development",
+        "duration": "Week",
+        "video": {},
+        "photo": {},
+        "lecturer": "ww",
+        "lecturerDescription": "ww"
+    },
+    "pricing": {
+        "currency": "USD",
+        price: 5000,
+        "priceTier": "Free",
+        "promoLink": "",
+        "selectedVoucher": "best_current_price",
+        "voucherOptions": [
+            {
+                "value": "best_current_price",
+                "label": "Best current price",
+                "features": [
+                    "Fixed price",
+                    "Unlimited quantity",
+                    "Limited validity period"
+                ]
+            },
+            {
+                "value": "custom_price",
+                "label": "Custom price",
+                "features": [
+                    "Select a price between two numbers",
+                    "Unlimited quantity",
+                    "Limited validity period"
+                ]
+            }
+        ]
+    },
+    "coupons": [
+        {
+            "code": "",
+            "status": "Free",
+            "users": "Limited",
+            "startDate": "",
+            "endDate": ""
+        }
+    ],
+    isInWishlist: false,
+    isInCart: false,
+    id: 48,
+    rate: 4.7,
+    ratingsCount: 9,
+    instructor: 'Ahmed Abbas',
+    instructorImage: "assets/image.jpg",
+    lastUpdate: '11/2025',
+    language: 'English',
+    seatsLeft: 10,
+    watched: 107,
+    src: 'assets/course3.png',
+},
+{
+  "courseType": "Recorded Educational Courses",
+  "category": "Development",
+  "learningObjectives": "qqqqqqqqqq",
+  "requirements": "qqqqqqqqqqqqqqqqqq",
+  "targetAudience": "qqqqqqqqqqqqqqqqqqqqq",
+  "courseTitle": "database",
+  "curriculum": [
+      {
+          "name": "w",
+          "lectures": [
+              {
+                  "title": "w",
+                  "video": {},
+                  "videoName": "[EgyBest].Aashiqui.2.2013.720p.x264.mp4",
+                  "description": "w",
+                  "activeTab": "video",
+                  "duration":"10 min"
+              },
+              {
+                  "title": "www",
+                  "video": {},
+                  "videoName": "[EgyBest].Ashtata.Ashtwt.2004.BluRay.720p.x264.mp4",
+                  "description": "www",
+                  "activeTab": "video",
+                  "duration":"14 min"
+              },
+              {
+                  "title": "www",
+                  "video": {},
+                  "videoName": "[EgyBest].Al.Ghasala.2020.WEB-DL.720p.x264.mp4",
+                  "description": "qq",
+                  "activeTab": "video",
+                  "duration":"17 min"
+              }
+          ]
+      },
+      {
+          "name": "www",
+          "lectures": [
+              {
+                  "title": "www",
+                  "video": {},
+                  "videoName": "[EgyBest].Ashtata.Ashtwt.2004.BluRay.720p.x264.mp4",
+                  "description": "ww",
+                  "activeTab": "video",
+                  "duration":"14 min"
+              },
+              {
+                  "title": "www",
+                  "video": {},
+                  "videoName": "[EgyBest].Bang.Bang.2014.BluRay.480p.x264.mp4",
+                  "description": "wqw",
+                  "activeTab": "description",
+                  "duration":"10 min"
+              },
+              {
+                  "title": "www",
+                  "video": {},
+                  "videoName": "[EgyBest].Bang.Bang.2014.BluRay.480p.x264.mp4",
+                  "description": "qweq",
+                  "activeTab": "description",
+                  "duration":"14 min"
+              }
+          ]
+      }
+  ],
+  "landingPage": {
+      "title": "qww",
+      "description": "qq",
+      "language": "English",
+      "level": "Advanced",
+      "category": "Development",
+      "duration": "Week",
+      "video": {},
+      "photo": {},
+      "lecturer": "ww",
+      "lecturerDescription": "ww"
+  },
+  "pricing": {
+      "currency": "USD",
+      price: 5000,
+      "priceTier": "Free",
+      "promoLink": "",
+      "selectedVoucher": "best_current_price",
+      "voucherOptions": [
+          {
+              "value": "best_current_price",
+              "label": "Best current price",
+              "features": [
+                  "Fixed price",
+                  "Unlimited quantity",
+                  "Limited validity period"
+              ]
+          },
+          {
+              "value": "custom_price",
+              "label": "Custom price",
+              "features": [
+                  "Select a price between two numbers",
+                  "Unlimited quantity",
+                  "Limited validity period"
+              ]
+          }
+      ]
+  },
+  "coupons": [
+      {
+          "code": "",
+          "status": "Free",
+          "users": "Limited",
+          "startDate": "",
+          "endDate": ""
+      }
+  ],
+  isInWishlist: false,
+  isInCart: false,
+  id:49,
+  rate: 4.7,
+  ratingsCount: 9,
+  instructor: 'Ahmed Abbas',
+  instructorImage: "assets/image.jpg",
+  lastUpdate: '11/2025',
+  language: 'English',
+  seatsLeft: 10,
+  watched: 107,
+  src: 'assets/course1.png',
+}
+
 
   ];
 
@@ -50,12 +714,12 @@ export class FinanceCourseComponent implements OnInit{
 
 
     this.lectures.forEach(course => {
-      course.isInWishList = this.wishlistService.isItemInList(course.id);
+      course.isInWishlist = this.wishlistService.isItemInList(course.id);
     });
 
     this.wishlistService.listItems$.subscribe(() => {
       this.lectures.forEach(course => {
-        course.isInWishList = this.wishlistService.isItemInList(course.id);
+        course.isInWishlist = this.wishlistService.isItemInList(course.id);
       });
     });
 
@@ -95,7 +759,7 @@ export class FinanceCourseComponent implements OnInit{
 
   get filteredCourses() {
     return this.lectures.filter(course =>
-      course.title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      course.courseTitle.toLowerCase().includes(this.searchQuery.toLowerCase())
     );
   }
 

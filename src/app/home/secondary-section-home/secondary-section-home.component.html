@@ -198,18 +198,18 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div> </div>
                         </div>
                       </div>
@@ -217,7 +217,7 @@
 
 
                     <div class="container mt-4">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all JavaScript courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all JavaScript courses" | transloco}}</button>
                   </div>
 
                   </div>
@@ -234,25 +234,25 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div> </div>
                         </div>
                       </div>
                     </div>
 
                     <div class="container mt-4 ">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all React courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all React courses" | transloco}}</button>
                   </div>
                   </div>
                 </div>
@@ -268,25 +268,25 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div></div>
                         </div>
                       </div>
                     </div>
 
                     <div class="container mt-4 ">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all Angular courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all Angular courses" | transloco}}</button>
                   </div>
                   </div>
                 </div>
@@ -303,25 +303,25 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div> </div>
                         </div>
                       </div>
                     </div>
 
                     <div class="container mt-4 ">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all Java courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all Java courses" | transloco}}</button>
                   </div>
                   </div>
                 </div>
@@ -338,18 +338,18 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div>
                            </div>
                         </div>
@@ -357,7 +357,7 @@
                     </div>
 
                     <div class="container mt-4 ">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all Android courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all Android courses" | transloco}}</button>
                   </div>
                   </div>
                 </div>
@@ -374,25 +374,25 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div></div>
                         </div>
                       </div>
                     </div>
 
                     <div class="container mt-4 ">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all CSS  courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all CSS  courses" | transloco}}</button>
                   </div>
                   </div>
                 </div>
@@ -408,25 +408,25 @@
                             </div>
                           </div>
                           <div class="card-body">
-                            <h5 class="card-title">{{ course.title }}</h5>
-                            <p class="card-text small text-muted">{{ course.describtion }}</p>
+                            <h5 class="card-title">{{ course.courseTitle }}</h5>
+                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
                             <p class="content">{{ course.rate }}
-                              <span [innerHTML]="course.stars"> </span>
+                              <i class="fa-solid fa-star text-warning mx-1"></i>
                               <span class="text-muted"> {{ course.watched }}</span>
                             </p>
-                            <p>{{ course.price }} LE</p>
+                            <p>{{ course.pricing.price }} LE</p>
                             <div class="d-flex justify-content-between">
                               <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
                               <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishList" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishList" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
                             </div></div>
                         </div>
                       </div>
                     </div>
 
                     <div class="container mt-4 ">
-                      <button class="btn btn-outline-primary btn-lg ">{{"home.secondary-section-home.view all Web Development courses" | transloco}}</button>
+                      <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all Web Development courses" | transloco}}</button>
                   </div>
                   </div>
                 </div>

@@ -13,18 +13,21 @@
           </div>
         </div>
         <div class="col-md-4">
-          <h5 class="py-2">{{ item.title }}</h5>
+          <h5 class="py-2">{{ item.courseTitle }}</h5>
           <p >{{ item.rate }}
-            <span [innerHTML]="item.stars"> </span>
+            <i class="fa-solid fa-star text-warning mx-1"></i>
             <span class="text-muted"> {{ item.watched }}</span>
           </p>
-          <p><strong>Price:</strong> {{ item.price }} LE</p>
+          <p><strong>Price:</strong> {{ item.pricing.price }} LE</p>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-colors ps-0 " (click)="removeItem(item.id)">Remove</button>
+          <button class="btn btn-colors  " (click)="removeItem(item.id)">Remove</button>
 
           <div>
-            <button class="btn btn-color ps-0">Move to wishlist</button>
+            <!-- <button class="btn btn-color ps-0" (click)="addToWishList(item)" >Move to wishlist</button> -->
+            <button class="btn btn-color heart " *ngIf="!item.isInWishlist" (click)="addToWishList(item)">Move to wishlist</button>
+            <button class="btn btn-color heart" *ngIf="item.isInWishlist" (click)="removeFromWishList(item)">Remove from wishlist</button>
+
           </div>
 
 
@@ -45,8 +48,29 @@
     <div class="py-3">
       <h4>Total Price: <strong>{{ totalPrice }} LE</strong></h4>
       <div class="d-flex">
-        <div class="py-2 pe-2"><button class="btn btn-primary">Checkout</button></div>
-        <div class="py-2 "><button class="btn btn-outline-primary ">Continue Shopping</button></div>
+<!-- زر الـ Checkout -->
+<div class="py-2 pe-2">
+  <button class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#loginModal">Checkout</button>
+</div>
+
+<!-- الـ Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title mx-2" id="loginModalLabel">alert</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+          </div>
+          <div class="modal-body">
+            <p>Please Login First</p>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+      </div>
+  </div>
+</div>
+      <div class="py-2 "><button class="btn btn-outline-primary " routerLink="explore-courses">Continue Shopping</button></div>
       </div>
 
     </div>

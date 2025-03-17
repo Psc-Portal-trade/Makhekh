@@ -13,9 +13,9 @@
         <tr *ngFor="let item of lectures">
           <td class="d-flex align-items-center">
             <img [src]="item.src" alt="Course Image" class="wishlist-img me-2">
-            {{ item.title }}
+            {{ item.courseTitle }}
           </td>
-          <td class="text-danger fw-bold">${{ item.price }} LE</td>
+          <td class="text-danger fw-bold">${{ item.pricing.price }} LE</td>
           <td>
             <button class="btn btn-outline-secondary btn-sm mx-2"><i class="fa-solid fa-eye mx-1"></i> View</button>
             <button class="btn btn-primary btn-sm mx-2" *ngIf="!item.isInCart" (click)="addToCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>  Cart</button>

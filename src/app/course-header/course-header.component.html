@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5 ">
-  <div class="container-fluid">
+  <div class="container-fluid d-flex justify-content-between">
     <a class="btn btn-outline-light" routerLink="instructor-profile">
-      <i class="bi bi-arrow-left"></i> Back to Dashboard
+       Back to Dashboard
     </a>
-    <span class="navbar-brand mx-auto text-white">Course Name</span>
-    <button class="btn btn-light">Preview</button>
+    <span class="navbar-brand  text-white">{{courseObj.courseTitle}}</span>
+    <!-- <button class="btn btn-light">Preview</button> -->
   </div>
 </nav>
 <div *ngIf="courseObj?.courseType === 'Recorded Educational Courses'" id="Recorded_Educational_Courses">
@@ -70,58 +70,9 @@
           <button class="btn btn-primary" (click)="addSection()">+ Add Section</button>
         </div>
 
-        <!-- Step 2: Schedules -->
-        <!-- <div *ngIf="currentStep === 1">
-          <h3>Instructor Schedules</h3>
 
-          <div class="mb-3">
-            <label></label>
-            <div *ngFor="let option of options; let i = index" class="form-check">
-              <input type="radio" id="schedule{{i}}" name="schedule" class="form-check-input"
-                     [value]="i" [(ngModel)]="selectedScheduleIndex"
-                     (change)="selectSchedule(i)">
-              <label class="form-check-label" for="schedule{{i}}">
-                {{ option.name }}
-              </label>
-            </div>
 
-          </div>
-
-          <button class="btn btn-success mb-2" (click)="addRow()">Add Row</button>
-
-          <table *ngIf="selectedSchedule.length > 0" class="table table-bordered">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th>Course Title</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Lecturer Name</th>
-                <th>Registered #</th>
-                <th>Status</th>
-                <th>Join Link</th>
-                <th>Limit # of Students</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let schedule of selectedSchedule; let i = index">
-                <td contenteditable="true" (blur)="editRow(i, 'courseTitle', $event)">{{ schedule.courseTitle }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'date', $event)">{{ schedule.date }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'time', $event)">{{ schedule.time }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'lecturerName', $event)">{{ schedule.lecturerName }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'registered', $event)">{{ schedule.registered }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'status', $event)">{{ schedule.status }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'joinLink', $event)"><a [href]="schedule.joinLink" target="_blank">{{schedule.joinLink}}</a></td>
-                <td contenteditable="true" (blur)="editRow(i, 'limit', $event)">{{ schedule.limit }}</td>
-                <td>
-                  <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div> -->
-
-  <!-- Step 3: Course Landing Page -->
+  <!-- Step 2: Course Landing Page -->
   <div *ngIf="currentStep === 1" class="container mt-4">
     <div class="card p-4">
       <h3 class="mb-3">Course Landing Page</h3>
@@ -201,7 +152,7 @@
 
 
 
-  <!-- Step 4: Pricing & Promotions Page -->
+  <!-- Step 3: Pricing & Promotions Page -->
   <div *ngIf="currentStep === 2" class="container mt-4">
     <div class="card p-4">
 
@@ -213,6 +164,10 @@
                 <p class="fw-bold">Set a price for your course</p>
                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="form-label">Price</label>
+                    <input class="form-control" type="number" [(ngModel)]="courseData.price">
+                </div>
                     <div class="col-md-6">
                         <label class="form-label">Currency</label>
                         <select class="form-select" [(ngModel)]="courseData.currency">
@@ -325,7 +280,7 @@
 
 
 
-  <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsRecorded_Educational_Courses.length - 1" (click)="submitForReview()">
+  <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsRecorded_Educational_Courses.length - 1" (click)="nextStep1()" routerLink="courseDetails">
     Submit for Review
   </button>
       </div>
@@ -336,9 +291,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 
 <div *ngIf="courseObj?.courseType === 'Live Streamed Educational Courses'"  id="Live_Streamed_Educational_Courses">
@@ -355,112 +307,108 @@
       </div>
 
       <div class="col-md-9 content-section rounded-2">
-        <!-- Step 1: Curriculum -->
-        <!-- <div *ngIf="currentStep === 0">
-          <h3>Curriculum</h3>
 
-          <div *ngFor="let section of sections; let i = index" class="card mb-3">
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <input [(ngModel)]="section.name" placeholder="Section Name" class="form-control mb-2 w-75" />
-                <button class="btn btn-danger btn-sm" (click)="removeSection(i)">Delete Section</button>
-              </div>
-
-              <div *ngFor="let lecture of section.lectures; let j = index">
-                <div class="d-flex justify-content-between align-items-center">
-                  <strong>Lecture {{ j + 1 }}</strong>
-                  <button class="btn btn-danger btn-sm my-2" (click)="removeLecture(i, j)">Delete Lecture</button>
-                </div>
-
-                <input [(ngModel)]="lecture.title" placeholder="Lecture Title" class="form-control mb-2" />
-
-                <div class="nav nav-tabs">
-                  <button class="nav-link" [class.active]="lecture.activeTab === 'video'"
-                          (click)="changeTab(i, j, 'video')">Video</button>
-                  <button class="nav-link" [class.active]="lecture.activeTab === 'description'"
-                          (click)="changeTab(i, j, 'description')">Description</button>
-                </div>
-
-                <div *ngIf="lecture.activeTab === 'video'" class="mt-2">
-                  <div class="custom-file-upload">
-                    <span *ngIf="!lecture.videoName" class="file-placeholder">No selected file</span>
-                    <span *ngIf="lecture.videoName" class="file-name">{{ lecture.videoName }}</span>
-                    <input type="file" #fileInput (change)="onFileSelected($event, i, j)" accept="video/*" hidden />
-                    <button class="btn btn-link select-video-btn" (click)="fileInput.click()">Select Video</button>
-                  </div>
-                </div>
-
-                <div *ngIf="lecture.activeTab === 'description'" class="mt-2">
-                  <textarea [(ngModel)]="lecture.description" placeholder="Enter video description" class="form-control"></textarea>
-                </div>
-
-                <hr/>
-              </div>
-
-              <button class="btn btn-sm btn-secondary" (click)="addLecture(i)">+ Add Lecture</button>
-            </div>
-          </div>
-
-          <button class="btn btn-primary" (click)="addSection()">+ Add Section</button>
-        </div> -->
-
-        <!-- Step 2: Schedules -->
+        <!-- Step 1: Schedules -->
         <div *ngIf="currentStep === 0">
           <h3>Instructor Schedules</h3>
-
-          <div class="mb-3">
-            <label></label>
-
-
-            <h3>Your Schedule</h3>
-
-
-            <div *ngFor="let option of options; let i = index" class="form-check" style="display: none;">
-              <input type="radio" id="schedule{{i}}" name="schedule" class="form-check-input"
-                     [value]="i" [(ngModel)]="selectedScheduleIndex"
-                     (change)="selectSchedule(i)">
-              <label class="form-check-label" for="schedule{{i}}">
-                {{ option.name }}
-              </label>
-            </div>
-
-          </div>
-
           <button class="btn btn-success mb-2" (click)="addRow()">Add Row</button>
 
-          <table *ngIf="selectedSchedule.length > 0" class="table table-bordered">
-            <thead class="bg-primary text-white">
-              <tr>
-                <th>Course Title</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Lecturer Name</th>
-                <th>Registered #</th>
-                <th>Status</th>
-                <th>Join Link</th>
-                <th>Limit # of Students</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let schedule of selectedSchedule; let i = index">
-                <td contenteditable="true" (blur)="editRow(i, 'courseTitle', $event)">{{ schedule.courseTitle }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'date', $event)">{{ schedule.date }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'time', $event)">{{ schedule.time }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'lecturerName', $event)">{{ schedule.lecturerName }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'registered', $event)">{{ schedule.registered }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'status', $event)">{{ schedule.status }}</td>
-                <td contenteditable="true" (blur)="editRow(i, 'joinLink', $event)"><a [href]="schedule.joinLink" target="_blank">{{schedule.joinLink}}</a></td>
-                <td contenteditable="true" (blur)="editRow(i, 'limit', $event)">{{ schedule.limit }}</td>
-                <td>
-                  <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+         <!-- جدول الشاشة الكبيرة -->
+<!-- <div class="d-none d-l-block">
+  <table *ngIf="selectedSchedule.length > 0" class="table table-bordered">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th>Course Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Lecturer Name</th>
+        <th>Registered #</th>
+        <th>Status</th>
+        <th>Join Link</th>
+        <th>Limit # of Students</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schedule of selectedSchedule; let i = index">
+        <td>
+          <input type="text" [(ngModel)]="schedule.courseTitle" class="form-control">
+        </td>
+        <td>
+          <input type="date" [(ngModel)]="schedule.date" class="form-control">
+        </td>
+        <td>
+          <input type="time" [(ngModel)]="schedule.time" class="form-control">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="schedule.lecturerName" class="form-control">
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="schedule.registered" class="form-control">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="schedule.status" class="form-control">
+        </td>
+        <td>
+          <input type="url" [(ngModel)]="schedule.joinLink" class="form-control">
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="schedule.limit" class="form-control">
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div> -->
+
+
+          <!-- جدول الشاشة الصغيرة (حقول إدخال) -->
+          <div class="">
+            <div *ngFor="let schedule of selectedSchedule; let i = index" class="card mb-3 border p-3">
+              <div class="card-body">
+                <div class="mb-2">
+                  <label class="fw-bold">Course Title</label>
+                  <input type="text" [(ngModel)]="schedule.courseTitle" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Date</label>
+                  <input type="date" [(ngModel)]="schedule.date" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Time</label>
+                  <input type="time" [(ngModel)]="schedule.time" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Lecturer</label>
+                  <input type="text" [(ngModel)]="schedule.lecturerName" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Registered</label>
+                  <input type="number" [(ngModel)]="schedule.registered" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Status</label>
+                  <input type="text" [(ngModel)]="schedule.status" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Join Link</label>
+                  <input type="url" [(ngModel)]="schedule.joinLink" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">Limit</label>
+                  <input type="number" [(ngModel)]="schedule.limit" class="form-control">
+                </div>
+                <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">Delete</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-  <!-- Step 3: Course Landing Page -->
+
+  <!-- Step 2: Course Landing Page -->
   <div *ngIf="currentStep === 1" class="container mt-4">
     <div class="card p-4">
       <h3 class="mb-3">Course Landing Page</h3>
@@ -540,7 +488,7 @@
 
 
 
-  <!-- Step 4: Pricing & Promotions Page -->
+  <!-- Step 3: Pricing & Promotions Page -->
   <div *ngIf="currentStep === 2" class="container mt-4">
     <div class="card p-4">
 
@@ -552,6 +500,10 @@
                 <p class="fw-bold">Set a price for your course</p>
                 <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="form-label">Price</label>
+                    <input class="form-control" type="number" [(ngModel)]="courseData.price">
+                </div>
                     <div class="col-md-6">
                         <label class="form-label">Currency</label>
                         <select class="form-select" [(ngModel)]="courseData.currency">
@@ -664,7 +616,7 @@
 
 
 
-  <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsLive_Streamed_Educational_Courses.length - 1" (click)="submitForReview()">
+  <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsLive_Streamed_Educational_Courses.length - 1" (click)="nextStep2()" routerLink="courseDetails">
     Submit for Review
   </button>
       </div>

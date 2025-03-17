@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./footer/footer.component";
 import { TranslocoService } from '@ngneat/transloco';
+import { CoursDetalisComponent } from "./cours-detalis/cours-detalis.component";
 
 @Component({
   selector: 'app-root',
-  imports: [FooterComponent,RouterOutlet],
+  imports: [FooterComponent, RouterOutlet, CoursDetalisComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router'; // ✅ تأكد من استيراد Router
 
 @Component({
   selector: 'app-course-header',
@@ -23,13 +24,11 @@ export class CourseHeaderComponent implements OnInit {
 
   stepsRecorded_Educational_Courses = [
     {  title: 'Curriculum', completed: false },
-    // { title: 'Instructor Schedules', completed: false },
     { title: 'Landing Page', completed: false },
     { title: 'Pricing & Promotions', completed: false },
     { title: 'Create Coupons', completed: false }
   ];
   stepsLive_Streamed_Educational_Courses = [
-    // {  title: 'Curriculum', completed: false },
     { title: 'Instructor Schedules', completed: false },
     { title: 'Landing Page', completed: false },
     { title: 'Pricing & Promotions', completed: false },
@@ -42,13 +41,8 @@ export class CourseHeaderComponent implements OnInit {
     lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video' }]
   }];
 
-  scheduleData: any[] = [
-    { courseTitle: 'Course A', date: '2024-03-01', time: '10:00 AM', lecturerName: 'John Doe', registered: '20', status: 'Completed', joinLink: 'https://linkA.com', limit: '50' }
-  ];
 
-  scheduleData2: any[] = [
-    { courseTitle: 'Course B', date: '2024-03-02', time: '02:00 PM', lecturerName: 'Jane Smith', registered: '15', status: 'In progress', joinLink: 'https://linkB.com', limit: '30' }
-  ];
+
 
   course = {
     title: '', description: '', language: 'English', level: 'Beginner', category: 'Design', duration: 'Week',
@@ -57,27 +51,17 @@ export class CourseHeaderComponent implements OnInit {
 
   courseData = {
     currency: 'USD', priceTier: 'Free', promoLink: '',
+    price:0,
     selectedVoucher: 'best_current_price',
     voucherOptions: [
       { value: 'best_current_price', label: 'Best current price', features: ['Fixed price', 'Unlimited quantity', 'Limited validity period'] },
       { value: 'custom_price', label: 'Custom price', features: ['Select a price between two numbers', 'Unlimited quantity', 'Limited validity period'] }
     ]
   };
-  options = [
-    { name: 'Schedule 1', value: 'scheduleData' },
-  ];
-
-  selectedScheduleIndex: number = 0;
 
 
-  selectSchedule(index: number) {
-    this.selectedScheduleIndex = index;
-    const schedule = index === 0 ? this.scheduleData : this.scheduleData2;
 
-    // عرض أول 5 صفوف فقط
-    this.selectedSchedule = schedule.slice(0, 5);
-  }
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute,  private router: Router) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -108,19 +92,20 @@ export class CourseHeaderComponent implements OnInit {
     }
   }
   isFirstRowComplete(): boolean {
-    if (this.selectedSchedule.length === 0) return false; // تأكد من أن هناك على الأقل صفًا واحدًا
+    if (this.selectedSchedule.length === 0) return false; // تأكد من وجود صف واحد على الأقل
 
     const firstRow = this.selectedSchedule[0]; // الحصول على الصف الأول
 
-    return !!firstRow.courseTitle.trim() &&
-           !!firstRow.date.trim() &&
-           !!firstRow.time.trim() &&
-           !!firstRow.lecturerName.trim() &&
-           !!firstRow.registered.trim() &&
-           !!firstRow.status.trim() &&
-           !!firstRow.joinLink.trim() &&
-           !!firstRow.limit.trim();
+    return firstRow.courseTitle?.trim() !== '' &&
+           firstRow.date !== '' &&
+           firstRow.time !== '' &&
+           firstRow.lecturerName?.trim() !== '' &&
+           firstRow.registered != null && firstRow.registered !== '' &&
+           firstRow.status?.trim() !== '' &&
+           firstRow.joinLink?.trim() !== '' &&
+           firstRow.limit != null && firstRow.limit !== '';
   }
+
   resetToOriginalData() {
     this.courseObj = { ...this.originalCourseData };
   }
@@ -130,50 +115,90 @@ export class CourseHeaderComponent implements OnInit {
     console.log("Copied Course Data:", this.copiedCourse);
   }
 
-  saveStepData() {
-    this.allFormData[`step_${this.currentStep}`] = {
-      sections: JSON.parse(JSON.stringify(this.sections)),
-      schedule: JSON.parse(JSON.stringify(this.selectedSchedule)),
-      course: JSON.parse(JSON.stringify(this.course)),
-      pricing: JSON.parse(JSON.stringify(this.courseData)),
-      coupons: JSON.parse(JSON.stringify(this.coupons))
-    };
-  }
 
   nextStep1() {
     if (this.currentStep === 0 && !this.isFirstStepValid()) {
       return;
     }
 
+    // حفظ بيانات كل خطوة في courseObj قبل الانتقال للخطوة التالية
+    switch (this.currentStep) {
+      case 0:
+        this.courseObj.curriculum = this.sections;
+        break;
+      case 1:
+        this.courseObj.landingPage = { ...this.course };
+        break;
+      case 2:
+        this.courseObj.pricing = { ...this.courseData };
+        break;
+      case 3:
+        this.courseObj.coupons = [...this.coupons];
+        this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
+
+        break;
+    }
+
     if (this.currentStep < this.stepsRecorded_Educational_Courses.length - 1) {
       this.currentStep++;
-      if (this.currentStep === 1) {
-        this.loadScheduleData();
-      }
     }
+    console.log(this.courseObj)
   }
+
   nextStep2() {
+    console.log("Before Saving:", this.courseObj); // لمعرفة البيانات قبل الحفظ
 
-
-    if (this.currentStep < this.stepsRecorded_Educational_Courses.length - 1) {
-      this.currentStep++;
-      if (this.currentStep === 1) {
-        this.loadScheduleData();
-      }
+    if (this.currentStep === 0) {
+      this.courseObj.schedules = this.selectedSchedule;  // احفظ بيانات الجدول
     }
+    else if (this.currentStep === 1) {
+      this.courseObj.landingPage = {
+        title: this.course.title,
+        description: this.course.description,
+        language: this.course.language,
+        level: this.course.level,
+        category: this.course.category,
+        duration: this.course.duration,
+        lecturer: this.course.lecturer,
+        lecturerDescription: this.course.lecturerDescription,
+        photo: this.course.photo,  // ✅ حفظ الصورة
+        video: this.course.video   // ✅ حفظ الفيديو
+      };
+    }
+
+    else if (this.currentStep === 2) {
+      this.courseObj.pricing = {
+        currency: this.courseData.currency,
+        priceTier: this.courseData.priceTier,
+        promoLink: this.courseData.promoLink,
+        selectedVoucher: this.courseData.selectedVoucher,
+        price:this.courseData.price
+      };
+    }
+    else if (this.currentStep === 3) {
+      this.courseObj.coupons = this.coupons;
+      this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
+
+    }
+
+
+    // التنقل إلى الخطوة التالية
+    if (this.currentStep < this.stepsLive_Streamed_Educational_Courses.length - 1) {
+      this.currentStep++;
+    }
+console.log("Course Object:", this.courseObj);
+
   }
+
+
+
+
+
 
   prevStep() {
     if (this.currentStep > 0) {
       this.currentStep--;
     }
-  }
-
-  loadScheduleData() {
-    this.http.get<any[]>('https://api.example.com/schedules').subscribe(
-      data => { this.scheduleData = data; },
-      error => { console.error('Error fetching schedule data', error); }
-    );
   }
 
 
@@ -186,12 +211,7 @@ export class CourseHeaderComponent implements OnInit {
     this.coupons.splice(index, 1);
   }
 
-  submitForReview() {
-    console.log("🚀 Submitted Data:", JSON.stringify({
-      sections: this.sections, schedules: this.selectedSchedule, course: this.course,
-      pricing: this.courseData, coupons: this.coupons
-    }, null, 2));
-  }
+
 
   saveData() {
     console.log('Saved Data:', this.courseData);

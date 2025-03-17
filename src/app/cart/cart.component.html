@@ -13,18 +13,19 @@
           </div>
         </div>
         <div class="col-md-4">
-          <h5 class="py-2">{{ item.title }}</h5>
+          <h5 class="py-2">{{ item.courseTitle }}</h5>
           <p >{{ item.rate }}
-            <span [innerHTML]="item.stars"> </span>
-            <span class="text-muted"> {{ item.watched }}</span>
+            <i class="fa-solid fa-star text-warning mx-1"></i>
+             <span class="text-muted"> {{ item.watched }}</span>
           </p>
-          <p><strong>Price:</strong> {{ item.price }} LE</p>
+          <p><strong>Price:</strong> {{ item.pricing.price}} LE</p>
         </div>
         <div class="col-md-4">
           <button class="btn btn-colors ps-0 " (click)="removeItem(item.id)">Remove</button>
 
           <div>
-            <button class="btn btn-color ps-0">Move to wishlist</button>
+            <button class="btn btn-color heart " *ngIf="!item.isInWishlist" (click)="addToWishList(item)">Move to wishlist</button>
+            <button class="btn btn-color heart" *ngIf="item.isInWishlist" (click)="removeFromWishList(item)">Remove from wishlist</button>
           </div>
 
 
@@ -46,7 +47,7 @@
       <h4>Total Price: <strong>{{ totalPrice }} LE</strong></h4>
       <div class="d-flex">
         <div class="py-2 pe-2"><button class="btn btn-primary" (click)="checkout()">Checkout</button></div>
-        <div class="py-2 "><button class="btn btn-outline-primary ">Continue Shopping</button></div>
+        <div class="py-2 "><button class="btn btn-outline-primary " routerLink="explore">Continue Shopping</button></div>
       </div>
 
     </div>

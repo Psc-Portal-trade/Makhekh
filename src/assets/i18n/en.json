@@ -7,7 +7,8 @@
   "teach in Makhekh":"teach in Makhekh",
   "about us":"About us",
   "home":"Home",
-  "search":"Search"
+  "search":"Search",
+  "explore":"Explore"
 },
 "footer":{
   "discover more skills and learn with us":"Discover more skills and learn with us",
@@ -24,7 +25,7 @@
   "register":"Register",
   "login":"Login",
   "instructor":"Instructor",
-  "about us":"About us",
+  "explore":"Explore",
   "home":"Home",
   "search":"Search",
   "my courses":"My courses",
