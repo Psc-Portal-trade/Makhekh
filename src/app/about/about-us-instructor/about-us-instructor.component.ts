@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../services/course-information.service';
 
 @Component({
   selector: 'app-about-us-instructor',
@@ -5405,7 +5407,7 @@ src: 'assets/course1.png',
   ];
 
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     this.lectures.forEach(course => {
@@ -5430,7 +5432,10 @@ src: 'assets/course1.png',
 
 
   }
-
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Information']); // الانتقال إلى صفحة التفاصيل
+  }
   addToCart(course: any) {
     this.cartService.addToCart(course);
     course.isInCart = true;

@@ -1,13 +1,16 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CourseService } from '../../services/course.service';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../services/course-information.service';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-continue-learning',
   templateUrl: './continue-learning.component.html',
   styleUrls: ['./continue-learning.component.css'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule,TranslocoPipe]
 })
 export class ContinueLearningComponent implements OnInit {
   @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
@@ -17,7 +20,7 @@ export class ContinueLearningComponent implements OnInit {
   private startX = 0;
   private scrollLeft = 0;
 
-  constructor(private courseService: CourseService) {}
+  constructor(private courseService: CourseService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     // جلب الكورسات المشتراة من CourseService
@@ -25,7 +28,10 @@ export class ContinueLearningComponent implements OnInit {
       this.lectures = courses;
     });
   }
-
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-content']); // الانتقال إلى صفحة التفاصيل
+  }
   // حركة الماوس
   onMouseMove(event: MouseEvent) {
     if (!this.scrollContainer) return;

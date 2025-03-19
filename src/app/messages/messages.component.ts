@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
+import { QaService } from '../services/qa.service';
 import { LangService } from '../services/lang.service';
 import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-messages',
@@ -34,6 +36,7 @@ export class MessagesComponent {
   showRead: boolean = false;
   showUnread: boolean = false;
   selectedMessage: any = null;
+  logoSrc: string = 'assets/Logo AR.png';
 
 
   markAsRead(index: number) {
@@ -86,25 +89,24 @@ export class MessagesComponent {
     this.newMessage = { recipient: '', content: '' };
 
   }
-
-
-
-
- logoSrc: string = 'assets/Logo AR.png';
-
-  constructor(private langService: LangService) {
+  private translocoService = inject(TranslocoService);
+  selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
+   constructor(private qaService: QaService,private langService: LangService) {
     this.setLogo();
-  }
 
-  _translocoService = inject(TranslocoService);
+   }
+   _translocoService = inject(TranslocoService);
 
-  ngOnInit(): void {
+   ngOnInit() {
+    this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
+
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
-  }
+   }
 
-  changeLang(): void {
+
+   changeLang(): void {
     const htmlTag = document.documentElement;
     let lang = localStorage.getItem('lang');
     if (lang === 'ar') {
@@ -126,6 +128,14 @@ export class MessagesComponent {
     this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
   }
 
+
+
+
+
+  changeCourse(courseKey: string) {
+    this.selectedCourse$ = this.translocoService.selectTranslate(courseKey);
+    console.log(this.selectedCourse$ );
+  }
 
 
 }

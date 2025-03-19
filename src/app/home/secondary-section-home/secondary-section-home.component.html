@@ -190,27 +190,35 @@
                   tabindex="0">
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesJS" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesJS"   class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div> </div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -226,27 +234,35 @@
                 <div class="tab-pane fade" id="pills-React-JS" role="tabpanel" aria-labelledby="pills-React-JS-tab" tabindex="0">
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesReact" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesReact" class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div> </div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -260,27 +276,35 @@
                   tabindex="0">
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesAngylar" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesAngylar" class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div></div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -295,27 +319,35 @@
 
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesJava" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesJava" class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div> </div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -330,31 +362,39 @@
 
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesAndroud" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesAndroud" class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div>
-                           </div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
+                
 
                     <div class="container mt-4 ">
                       <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all Android courses" | transloco}}</button>
@@ -366,27 +406,35 @@
 
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesCSS" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesCSS" class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div></div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -400,31 +448,38 @@
                   tabindex="0">.
                   <div class="container">
                     <div class="row">
-                      <div *ngFor="let course of lecturesWEB" class="col-12 col-md-6 col-lg-4 mb-4">
+                      <div *ngFor="let course of lecturesWEB" class="col-12 col-md-6 col-lg-4 mb-4"
+                      
+                
+                      >
                         <div class="card lecture-card">
-                          <div class="video-thumbnail">
-                            <div class="vid-img">
-                              <img alt="" [src]="course.src">
+                          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+                            <div class="video-thumbnail">
+                              <div class="vid-img">
+                                <img alt="" [src]="course.src">
+                              </div>
                             </div>
+                            <div class="card-body">
+                              <h5 class="card-title">{{ course.courseTitle }}</h5>
+                              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
+                              <p class="content">{{ course.rate }}
+                                <!-- <span [innerHTML]="course.rate"> </span> -->
+                                <i class="fa-solid fa-star text-warning"></i>
+                  
+                                <span class="text-muted"> {{ course.watched }}</span>
+                              </p>
+                              <p>{{ course.pricing.price }} LE</p>
+                             </div>
                           </div>
-                          <div class="card-body">
-                            <h5 class="card-title">{{ course.courseTitle }}</h5>
-                            <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-                            <p class="content">{{ course.rate }}
-                              <i class="fa-solid fa-star text-warning mx-1"></i>
-                              <span class="text-muted"> {{ course.watched }}</span>
-                            </p>
-                            <p>{{ course.pricing.price }} LE</p>
-                            <div class="d-flex justify-content-between">
-                              <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
-                              <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
-                              <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-                              <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
-                            </div></div>
+                           <div class="d-flex justify-content-between px-2 pb-3">
+                            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">Add to Cart</button>
+                            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">Remove from Cart</button>
+                            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
+                            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+                          </div>
                         </div>
                       </div>
                     </div>
-
                     <div class="container mt-4 ">
                       <button class="btn btn-outline-primary btn-lg " routerLink="development-courses">{{"home.secondary-section-home.view all Web Development courses" | transloco}}</button>
                   </div>

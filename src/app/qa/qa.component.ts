@@ -1,34 +1,50 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { QaService } from '../services/qa.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
-import { LangService } from '../services/lang.service';
+import { Observable } from 'rxjs';
 import { RouterLink } from '@angular/router';
+import { LangService } from '../services/lang.service';
 
 @Component({
   selector: 'app-qa',
-  imports: [SidebarComponent,TranslocoPipe,RouterLink],
+  standalone: true,
+  imports: [SidebarComponent,RouterLink, FormsModule, CommonModule, TranslocoPipe],
   templateUrl: './qa.component.html',
   styleUrl: './qa.component.css'
 })
-export class QaComponent {
+export class QaComponent implements OnInit {
+  questions: any[] = [];
+  logoSrc: string = 'assets/Logo AR.png';
 
+  private translocoService = inject(TranslocoService);
+  selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
 
-
-
-
-
- logoSrc: string = 'assets/Logo AR.png';
-
-  constructor(private langService: LangService) {
+ constructor(private qaService: QaService,private langService: LangService) {
     this.setLogo();
-  }
 
-  _translocoService = inject(TranslocoService);
+   }
+   _translocoService = inject(TranslocoService);
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
+
+    this.qaService.getQuestions().subscribe(questions => {
+      this.questions = questions.map(q => ({
+        ...q,
+        isEditing: false,
+        tempAnswer: q.answer || ''
+      }));
+    });
+
+
+
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
+
   }
 
   changeLang(): void {
@@ -53,12 +69,41 @@ export class QaComponent {
     this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
   }
 
+  changeCourse(courseKey: string) {
+    this.selectedCourse$ = this.translocoService.selectTranslate(courseKey);
+    console.log(this.selectedCourse$);
 
+    this.qaService.getQuestions().subscribe(questions => {
+      if (courseKey === 'AllCourses') {
 
+        this.questions = questions.map(q => ({
+          ...q,
+          isEditing: false,
+          tempAnswer: q.answer || ''
+        }));
 
+      } else {
+        const translatedCourse = this.translocoService.translate(courseKey); // الترجمة الصحيحة
+        this.questions = questions
+          .filter(q => q.course === translatedCourse) // تأكد من أن التصفية تعتمد على القيم المترجمة
+          .map(q => ({
+            ...q,
+            isEditing: false,
+            tempAnswer: q.answer || ''
+          }));
+      }
+    });
+  }
 
+  toggleEdit(question: any) {
+    question.isEditing = true;
+  }
 
-
-
-
+  saveAnswer(question: any) {
+    if (question.tempAnswer.trim()) {
+      this.qaService.addAnswer(question.id, question.tempAnswer);
+      question.answer = question.tempAnswer;
+      question.isEditing = false;
+    }
+  }
 }

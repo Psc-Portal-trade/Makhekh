@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from '../../../navbar/navbar.component';
 import { CoursesHomeComponent } from '../courses-home.component';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../../services/course-information.service';
 
 @Component({
   selector: 'app-finance-courses',
@@ -695,7 +697,7 @@ export class FinanceCoursesComponent implements OnInit{
 
   ];
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     this.lectures.forEach(course => {
@@ -724,7 +726,10 @@ export class FinanceCoursesComponent implements OnInit{
 
 
   }
-
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Informations']); // الانتقال إلى صفحة التفاصيل
+  }
   addToCart(course: any) {
     this.cartService.addToCart(course);
     course.isInCart = true;

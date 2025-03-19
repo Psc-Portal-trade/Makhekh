@@ -160,3 +160,7 @@
   color: #888;
   margin-top: 10px;
 }
+
+.nav-link{
+  cursor: pointer;
+}

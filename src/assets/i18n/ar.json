@@ -155,8 +155,156 @@
   "testimonial_role_2": "مصمم تجربة المستخدم وواجهة المستخدم",
   "previous": "السابق"
 
+},
 
 
+
+
+"secondHome":{
+
+"Welcome, Name":"مرحباً، الاسم",
+"UX Designer":"مصمم تجربة المستخدم",
+"Development":"تطوير",
+"Finance & Accounting":"المالية والمحاسبة",
+"IT & Software":"تكنولوجيا المعلومات والبرمجيات",
+"Design":"تصميم",
+"Business":"عمل",
+"Marketing":"تسويق",
+"Health & Fitness":"الصحة واللياقة البدنية",
+"Offer Productivity":"عرض الإنتاجية",
+"recommended videos":"مقاطع فيديو موصى بها",
+"Featured Courses":"الدورات المميزة",
+"Continue learning":"استمر في التعلم"
+
+},
+
+
+
+
+
+
+
+
+
+
+"navigation": {
+  "internalNav": "التنقل الداخلي",
+  "sidebar": "الشريط الجانبي",
+  "student-view":"عرض الطالب",
+  "letter":"ح",
+  "communication": "التواصل",
+  "performance": "الأداء",
+  "messages": "الرسائل",
+  "suggestions": "اقتراحات الطلاب",
+  "overview": "نظرة عامة",
+  "students": "الطلاب",
+  "reviews": "المراجعات",
+  "courses":"الدورات",
+  "createCourses":"إنشاء الدورات"
+
+},
+"dashboard": {
+  "createCourse": "أنشئ دورتك الخاصة",
+  "getStarted": "ابدأ الآن"
+},
+"resources": {
+  "title": "هذه الموارد ستساعدك في الإجابة على جميع أسئلتك واستفساراتك",
+  "courseType": "ما نوع الدورات التي يمكنك إنشاؤها؟",
+  "seeMore": "المزيد →",
+  "engageLearners": "كيف تجذب المزيد من المتعلمين؟"
+},
+"benefits": {
+  "title": "العديد من الفوائد",
+  "coursePrice": "إضافة سعر الدورة",
+  "createCoupons": "إنشاء كوبونات",
+  "promoPrices": "أسعار ترويجية"
+},
+"cta": {
+  "question": "هل أنت مستعد للبدء؟",
+  "createCourse": "أنشئ دورتك"
+},
+"Q&A": "الأسئلة والأجوبة",
+"AllCourses": "جميع الدورات",
+"Question": "السؤال",
+"Answer": "الإجابة",
+"Action": "الإجراء",
+"noAnswerYet": "لا توجد أجوبة بعد.",
+"noQuestionsYet":" لا توجد أسئلة بعد.",
+"Edit": "تعديل",
+"Send an Answer": "إرسال إجابة",
+"Save": "حفظ",
+ "course1":"الدورة الأولي",
+ "course2":"الدورة الثانية",
+ "course3":"الدورة الثالثة",
+
+"messages": {
+"title": "الرسائل",
+"all_courses": "كل الدورات",
+"course1": "دورة 1",
+"course2": "دورة 2",
+"course3": "دورة 3",
+"compose": "إنشاء رسالة",
+"read": "مقروءة",
+"unread": "غير مقروءة",
+"time_ago": "منذ 3 سنوات",
+"type_message": "اكتب رسالتك...",
+"send": "إرسال",
+"new_message": "رسالة جديدة",
+"to": "إلى:",
+"instructor_name": "اسم المدرب",
+"message":"رسالة"
+
+},
+"suggestions": {
+"title": "اقتراحات الطلاب",
+"comment1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج إليت. سيد أليكوام فاريترا تيليس نيك فيفيرا. أنين تيمبوس فينيبوس سيم، إت سوليسيتودين ماجنا لوكتوس نيك.",
+"reply": "رد",
+"write_reply": "اكتب ردك...",
+"send": "إرسال",
+"show_more": "عرض المزيد من الاقتراحات",
+"no_suggestions": "لا توجد اقتراحات متاحة"
+},
+"overview": {
+"title": "نظرة عامة",
+"allcourses": "جميع الدورات",
+"course 1": "الدورة 1",
+"course 2": "الدورة 2",
+"course 3": "الدورة 3",
+"extract_report": "استخراج التقرير",
+"total_revenue": "إجمالي الإيرادات",
+"total_enrollments": "إجمالي التسجيلات",
+"total_sales": "إجمالي المبيعات"
 }
+,
+"course 1": "الدورة 1",
+"course 2": "الدورة 2",
+"course 3": "الدورة 3",
+
+"LE":"جنية",
+"students": {
+  "title": "الطلاب",
+  "all_courses": "جميع الدورات",
+  "course_1": "الدورة ١",
+  "course_2": "الدورة ٢",
+  "course_3": "الدورة ٣",
+  "no_of_student": "عدد الطلاب",
+  "no_of_student_completed": "عدد الطلاب الذين أكملوا الدورة",
+  "suggestions": "اقتراحات الطلاب",
+  "no_of_questions": "عدد الأسئلة"
+},
+"noDataAvailable": "لا توجد بيانات متاحة للتقرير",
+"reviews": {
+"title": "التقييمات",
+"InstructorRating":"تقييم المُحاضر"
+}
+
+
+
+
+
+
+
+
+
 
 }

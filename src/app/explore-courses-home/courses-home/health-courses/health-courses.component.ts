@@ -5,6 +5,8 @@ import { NavbarComponent } from '../../../navbar/navbar.component';
 import { CoursesHomeComponent } from '../courses-home.component';
 import { CartService } from '../../../services/cart.service';
 import { WishlistService } from '../../../services/wishlist.service';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../../services/course-information.service';
 
 @Component({
   selector: 'app-health-courses',
@@ -694,7 +696,7 @@ export class HealthCoursesComponent implements OnInit{
 
   ];
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     this.lectures.forEach(course => {
@@ -720,6 +722,11 @@ export class HealthCoursesComponent implements OnInit{
     });
 
 
+  }
+
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Informations']); // الانتقال إلى صفحة التفاصيل
   }
 
   addToCart(course: any) {

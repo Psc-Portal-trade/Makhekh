@@ -6,6 +6,8 @@ import { SecondNavComponent } from "../../../navbar/second-nav/second-nav.compon
 import { CoursesComponent } from "../courses.component";
 import { FooterComponent } from "../../../footer/footer.component"; // استيراد FormsModule لاستخدام [(ngModel)]
 import { WishlistService } from '../../../services/wishlist.service';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../../services/course-information.service';
 
 @Component({
   selector: 'app-business-course',
@@ -696,7 +698,7 @@ export class BusinessCourseComponent implements OnInit{
 
   ];
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     this.lectures.forEach(course => {
@@ -723,6 +725,13 @@ export class BusinessCourseComponent implements OnInit{
 
 
   }
+
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Information']); // الانتقال إلى صفحة التفاصيل
+  }
+
+
 
   addToCart(course: any) {
     this.cartService.addToCart(course);

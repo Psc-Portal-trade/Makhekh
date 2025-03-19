@@ -6,11 +6,12 @@ import { WishlistService } from '../services/wishlist.service';
 import { CartService } from '../services/cart.service';
 import { FooterComponent } from "../footer/footer.component";
 import { CoursesHomeComponent } from './courses-home/courses-home.component';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../services/course-information.service';
 
 @Component({
   selector: 'app-explore-courses-home',
-  imports: [NavbarComponent, CoursesHomeComponent, CommonModule, FormsModule, FooterComponent ,RouterLink],
+  imports: [NavbarComponent, CoursesHomeComponent, CommonModule, FormsModule, FooterComponent ],
   templateUrl: './explore-courses-home.component.html',
   styleUrl: './explore-courses-home.component.css'
 })
@@ -5406,7 +5407,7 @@ src: 'assets/course1.png',
   ];
 
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     this.lectures.forEach(course => {
@@ -5431,7 +5432,10 @@ src: 'assets/course1.png',
 
 
   }
-
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Informations']); // الانتقال إلى صفحة التفاصيل
+  }
   addToCart(course: any) {
     this.cartService.addToCart(course);
     course.isInCart = true;

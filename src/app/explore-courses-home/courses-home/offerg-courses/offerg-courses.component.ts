@@ -5,6 +5,8 @@ import { NavbarComponent } from '../../../navbar/navbar.component';
 import { CoursesHomeComponent } from '../courses-home.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../../services/course-information.service';
 
 @Component({
   selector: 'app-offerg-courses',
@@ -696,7 +698,7 @@ export class OffergCoursesComponent implements OnInit {
   ];
 
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
     this.lectures.forEach(course => {
@@ -720,6 +722,12 @@ export class OffergCoursesComponent implements OnInit {
     });
 
 
+  }
+
+
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Informations']); // الانتقال إلى صفحة التفاصيل
   }
 
   addToCart(course: any) {

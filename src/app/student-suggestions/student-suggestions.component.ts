@@ -4,34 +4,40 @@ import { FormsModule } from '@angular/forms';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-student-suggestions',
-  imports:[FormsModule,CommonModule,SidebarComponent,TranslocoPipe],
+  imports:[FormsModule,CommonModule,SidebarComponent,TranslocoPipe,RouterLink],
   templateUrl: './student-suggestions.component.html',
   styleUrls: ['./student-suggestions.component.css']
 })
 export class StudentSuggestionsComponent {
+  suggestions = [
+    { name: 'Hana', date: '12.12.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' },
+    { name: 'Ali', date: '10.11.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' },
+    { name: 'Sara', date: '05.10.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' },
+    { name: 'Mohamed', date: '20.09.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' }
+  ];
 
-
-
-
-
- logoSrc: string = 'assets/Logo AR.png';
-
-  constructor(private langService: LangService) {
+  selectedIndex: number | null = null; // لحفظ العنصر المحدد للرد عليه
+  replyText: string = ''; // نص الرد
+  logoSrc: string = 'assets/Logo AR.png';
+constructor(private langService: LangService) {
     this.setLogo();
-  }
 
-  _translocoService = inject(TranslocoService);
+   }
+      _translocoService = inject(TranslocoService);
+      ngOnInit() {
 
-  ngOnInit(): void {
-    this.langService.lang$.subscribe((lang) => {
-      this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
-    });
-  }
+        this.langService.lang$.subscribe((lang) => {
+          this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
+        });
+       }
 
-  changeLang(): void {
+
+
+   changeLang(): void {
     const htmlTag = document.documentElement;
     let lang = localStorage.getItem('lang');
     if (lang === 'ar') {
@@ -53,21 +59,6 @@ export class StudentSuggestionsComponent {
     this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
   }
 
-
-
-
-
-
-
-  suggestions = [
-    { name: 'Hana', date: '12.12.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' },
-    { name: 'Ali', date: '10.11.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' },
-    { name: 'Sara', date: '05.10.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' },
-    { name: 'Mohamed', date: '20.09.2024', text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam pharetra tellus nec viverra. Aenean tempus finibus sem, at sollicitudin magna luctus nec.' }
-  ];
-
-  selectedIndex: number | null = null; // لحفظ العنصر المحدد للرد عليه
-  replyText: string = ''; // نص الرد
 
   // عند الضغط على زر الرد
   reply(index: number) {

@@ -3,9 +3,10 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import jsPDF from 'jspdf';
-import { LangService } from '../services/lang.service';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
+import { LangService } from '../services/lang.service';
 import { RouterLink } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-reviews',
@@ -16,68 +17,30 @@ import { RouterLink } from '@angular/router';
 export class ReviewsComponent {
   activeTab: string = 'instructorRating';
   selectedCourse: string = 'All Courses';
-
-  // بيانات الكورسات المختلفة
-  coursesData: any = {
-    'Course 1': { instructorRating: 4 },
-    'Course 2': { instructorRating: 3.5 },
-    'Course 3': { instructorRating: 5 }
-  };
-
-  // حساب متوسط التقييمات عند تحميل الصفحة
-  instructorRating: number = this.calculateAverageRating();
-
-  // حساب المتوسط الحسابي لتقييمات الكورسات
-  calculateAverageRating(): number {
-    const ratings = Object.values(this.coursesData).map(course => (course as any).instructorRating);
-    const sum = ratings.reduce((acc, rating) => acc + rating, 0);
-    return ratings.length ? parseFloat((sum / ratings.length).toFixed(1)) : 0;
-  }
-
-  // تغيير القيم عند اختيار كورس معين
-  changeCourse(course: string) {
-    this.selectedCourse = course;
-    if (course === 'All Courses') {
-      this.instructorRating = this.calculateAverageRating();
-    } else {
-      this.instructorRating = this.coursesData[course]?.instructorRating || 0;
-    }
-  }
-
-  // توليد تقرير PDF عند الضغط على "Extract Report"
-  exportReport() {
-    const doc = new jsPDF();
-    doc.setFontSize(16);
-    doc.text(`Performance Report - ${this.selectedCourse}`, 20, 20);
-    doc.text(`Instructor Rating: ${this.instructorRating} stars`, 20, 40);
-    doc.save(`${this.selectedCourse}-report.pdf`);
-  }
-
-  // تعيين التبويب النشط
-  setActiveTab(tab: string) {
-    this.activeTab = tab;
-  }
-
-
-
-
-
-
- logoSrc: string = 'assets/Logo AR.png';
-
-  constructor(private langService: LangService) {
+  logoSrc: string = 'assets/Logo AR.png';
+ constructor(private langService: LangService) {
     this.setLogo();
-  }
 
-  _translocoService = inject(TranslocoService);
+   }
+   _translocoService = inject(TranslocoService);
+   ngOnInit() {
 
-  ngOnInit(): void {
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
-  }
+    // تعيين الدورة الافتراضية
+    this.selectedCourseKey = 'AllCourses';
+    this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
+    
+    // حساب المجموع لجميع الدورات
+    this.calculateAverageRating();
+    
+    // تعيين البيانات الأولية
+    this.setCourseData('AllCourses');
+   }
 
-  changeLang(): void {
+
+   changeLang(): void {
     const htmlTag = document.documentElement;
     let lang = localStorage.getItem('lang');
     if (lang === 'ar') {
@@ -100,8 +63,99 @@ export class ReviewsComponent {
   }
 
 
+  selectedCourseKey: string = ''; // المفتاح الفعلي
+
+  
+
+  // بيانات الكورسات المختلفة
+  coursesData: any = {
+    'AllCourses': {instructorRating: 0 }, // مضافة افتراضيًا
+    'course 1': { instructorRating: 4 },
+    'course 2': { instructorRating: 3.5 },
+    'course 3': { instructorRating: 5 }
+  };
+private translocoService = inject(TranslocoService);
+  selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
+
+
+  // تغيير القيم عند اختيار كورس معين
+  changeCourse(courseKey: string) {
+    this.selectedCourseKey = courseKey; // الاحتفاظ بالمفتاح الفعلي
+    this.selectedCourse$ = this.translocoService.selectTranslate(courseKey);
+
+    this.setCourseData(courseKey);
+  }
+ 
+  private setCourseData(courseKey: string) {
+    if (this.coursesData[courseKey]) {
+      this.instructorRating = this.coursesData[courseKey].instructorRating;
+    
+    }
+  }
+  // حساب متوسط التقييمات عند تحميل الصفحة
+  instructorRating: number = this.calculateAverageRating();
+  // حساب المتوسط الحسابي لتقييمات الكورسات
+  calculateAverageRating(): number {
+    // استخراج جميع التقييمات بدون تضمين AllCourses
+    const ratings = Object.entries(this.coursesData)
+      .filter(([key, _]) => key !== 'AllCourses') // استبعاد AllCourses
+      .map(([_, course]) => (course as any).instructorRating)
+      .filter(rating => typeof rating === 'number'); // التأكد من أن التقييم رقم وليس undefined
+  
+    const sum = ratings.reduce((acc, rating) => acc + rating, 0);
+    const averaging = ratings.length ? parseFloat((sum / ratings.length).toFixed(1)) : 0;
+  
+    // تحديث القيمة العامة
+    this.instructorRating = averaging;
+    this.coursesData['AllCourses'].instructorRating = averaging;
+  
+    return averaging;
+  }
+  
 
 
 
+  // توليد تقرير PDF عند الضغط على "Extract Report"
+  exportReport() {
+    if (!this.instructorRating) {
+      alert(this.translocoService.translate('No data available for the report.'));
+      return;
+    }
+  
+    const currentLang = this.translocoService.getActiveLang();
+    const isArabic = currentLang === 'ar';
+    const translatedCourse = this.translocoService.translate(this.selectedCourseKey);
+    
+    const title = isArabic ? `تقرير الأداء - ${translatedCourse}` : `Performance Report - ${translatedCourse}`;
+    const ratingLabel = isArabic ? 'تقييم المُحاضر:' : 'Instructor Rating:';
+    const starsLabel = isArabic ? 'نجوم' : 'stars';
+    const report = isArabic ? 'تقرير' : 'report';
 
+    const doc = new jsPDF({
+      orientation: 'p',
+      unit: 'mm',
+      format: 'a4'
+    });
+
+    // تحميل الخط الصحيح عند استخدام العربية
+    if (isArabic) {
+      doc.addFont('assets/fonts/Amiri-Bold.ttf', 'Amiri-Bold', 'bold');
+      doc.setFont('Amiri-Bold', 'bold');
+    } 
+
+    doc.setFontSize(16);
+    const xPos = isArabic ? 180 : 20; // ضبط المحاذاة
+
+    doc.text(title, xPos, 20, { align: isArabic ? 'right' : 'left' });
+    doc.setFontSize(14);
+    doc.text(`${ratingLabel} ${this.instructorRating} ${starsLabel}`, xPos, 40, { align: isArabic ? 'right' : 'left' });
+
+    doc.save(`${translatedCourse}-${report}.pdf`);
+}
+
+
+  // تعيين التبويب النشط
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
 }

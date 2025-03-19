@@ -3,7 +3,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { WishlistService } from '../../services/wishlist.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { CourseInformationService } from '../../services/course-information.service';
 
 @Component({
   selector: 'app-secondary-section-home',
@@ -3926,7 +3927,7 @@ export class SecondarySectionHomeComponent implements OnInit{
 
 
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
   ngOnInit() {
 
     this.lecturesJS.forEach(course => {
@@ -4106,6 +4107,13 @@ export class SecondarySectionHomeComponent implements OnInit{
 
   }
 
+
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Informations']); // الانتقال إلى صفحة التفاصيل
+  }
+
+  
   addToCart(course: any) {
     this.cartService.addToCart(course);
     course.isInCart = true;

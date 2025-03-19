@@ -63,7 +63,7 @@
     padding-left: 15px; /* لضمان المساحة الكافية للخط */
   }
   .content-item {
-    margin-left: 60px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
+    margin-left: 10px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
     transition: margin-left 0.3s ease-in-out;
 }
 
@@ -181,4 +181,29 @@ ul {
 }
 .second-sec a{
   cursor: pointer;
+}
+
+.responsive-class {
+ display: block;
+}
+@media (max-width: 768px) {
+  .responsive-class {
+    /* display: flex !important; */
+    /* justify-content: center !important; */
+    /* align-items: center !important; */
+    /* margin-left: 0 !important;
+
+    margin-right: 0 !important; */
+  }
+}
+
+
+@media (max-width: 999px) {
+  .responsive-class {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }

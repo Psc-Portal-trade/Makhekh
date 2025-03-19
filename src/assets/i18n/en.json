@@ -160,10 +160,143 @@
     "previous": "Previous"
 
 
+},
 
 
 
 
+"secondHome":{
+
+  "Welcome, Name":"Welcome, Name",
+  "UX Designer":"UX Designer",
+"Development":"Development",
+"Finance & Accounting":"Finance & Accounting",
+"IT & Software":"IT & Software",
+"Design":"Design",
+"Business":"Business",
+"Marketing":"Marketing",
+"Health & Fitness":"Health & Fitness",
+"Offer Productivity":"Offer Productivity",
+"recommended videos":"Recommended videos",
+"Featured Courses":"Featured Courses",
+"Continue learning":"Continue learning"
+
+
+
+
+
+},
+
+
+
+
+
+
+
+"navigation": {
+  "internalNav": "Internal Navigation",
+  "sidebar": "Sidebar",
+  "student-view":"student view",
+  "letter":"H",
+  "communication": "Communication",
+  "performance": "Performance",
+  "messages": "Messages",
+  "suggestions": "Student Suggestions",
+  "overview": "Overview",
+  "students": "Students",
+  "reviews": "Reviews",
+  "courses":"Courses",
+  "createCourses":"Create Courses"
+
+},
+"dashboard": {
+  "createCourse": "Create your own course",
+  "getStarted": "Get Started"
+},
+"resources": {
+  "title": "These resources will help to answer all your questions and concerns",
+  "courseType": "What type of courses you can create?",
+  "seeMore": "See more →",
+  "engageLearners": "How to engage more learners?"
+},
+"benefits": {
+  "title": "Many Benefits",
+  "coursePrice": "Adding Course Price",
+  "createCoupons": "Create Coupons",
+  "promoPrices": "Promotional Prices"
+},
+"cta": {
+  "question": "Are you ready to Begin?",
+  "createCourse": "Create your course"
+},
+"Q&A": "Q&A",
+"AllCourses": "All Courses",
+"Question": "Question",
+"Answer": "Answer",
+"Action": "Action",
+"noAnswerYet": "No questions yet.",
+"noQuestionsYet":"No questions yet",
+
+"Edit": "Edit",
+"Send an Answer": "Send an Answer",
+"Save": "Save",
+"course1":"course 1",
+"course2":"course 2",
+"course3": "course 3",
+
+"messages": {
+"title": "Messages",
+"all_courses": "All Courses",
+"course1": "Course 1",
+"course2": "Course 2",
+"course3": "Course 3",
+"compose": "Compose",
+"read": "Read",
+"unread": "Unread",
+"time_ago": "3 years ago",
+"type_message": "Type your message...",
+"send": "Send",
+"new_message": "New Message",
+"to": "To:",
+"instructor_name": "Instructor Name",
+"message":"message"
+},
+"suggestions": {
+"title": "Students Suggestions",
+"reply": "Reply",
+"write_reply": "Write your reply...",
+"send": "Send",
+"show_more": "Show More Suggestions",
+"no_suggestions": "No suggestions available"
+},
+"overview": {
+"title": "Overview",
+"All-Courses": "All Courses",
+"course 1": "Course 1",
+"course 2": "Course 2",
+"course 3": "Course 3",
+"extract_report": "Extract Report",
+"total_revenue": "Total Revenue",
+"total_enrollments": "Total Enrollments",
+"total_sales": "Total Sales"
+},
+
+"course 1": "Course 1",
+"course 2": "Course 2",
+"course 3": "Course 3",
+"LE":"LE" ,"students": {
+  "title": "Students",
+  "all_courses": "All Courses",
+  "no_of_student": "No of students",
+  "no_of_student_completed": "No of students completed the course",
+  "suggestions": "Students' suggestions",
+  "no_of_questions": "No of questions",
+  "noDataAvailable": "No data available for the report"
+
+},
+"reviews": {
+  "title": "Reviews",
+  "InstructorRating":"Instructor Rating"
 }
 
 

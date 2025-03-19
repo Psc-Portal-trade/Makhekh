@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
   <div class="table-responsive d-none d-md-block">
     <table class="table table-bordered text-center align-middle">
       <thead class="table-light">
@@ -17,7 +17,7 @@
           </td>
           <td class="text-danger fw-bold">${{ item.pricing.price }} LE</td>
           <td>
-            <button class="btn btn-outline-secondary btn-sm mx-2"><i class="fa-solid fa-eye mx-1"></i> View</button>
+            <button class="btn btn-outline-secondary btn-sm mx-2" (click)="goToCourseDetails(item)"><i class="fa-solid fa-eye mx-1"></i> View</button>
             <button class="btn btn-primary btn-sm mx-2" *ngIf="!item.isInCart" (click)="addToCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>  Cart</button>
             <button class="btn btn-primary btn-sm mx-2" *ngIf="item.isInCart" (click)="removeFromCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>  Remove</button>
             <button class="btn btn-danger btn-sm mx-2" (click)="removeFromWishList(item)"><i class="fa-solid fa-trash mx-1"></i> Remove</button>
@@ -49,6 +49,10 @@
       </div>
     </div>
   </div>
+  <div class="no-items" *ngIf="wishlistCourses.length === 0">
+    <img src="assets/no items yet.jpg" alt="No items yet">
+    <p>No items yet</p>
+</div>
 
 </div>
 

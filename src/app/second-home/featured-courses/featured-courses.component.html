@@ -1,14 +1,17 @@
 <section class="pt-5 pb-5">
-  <div class="container " >
-    <h2 class="Continue-learning fw-bold">Featured Courses</h2>
+  <div class="container-fluid px-3" >
+    <h2 class="Continue-learning fw-bold">
+      {{ "secondHome.Featured Courses" | transloco }}
+    </h2>
 
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
       <div class="scroll-container"
            (touchstart)="onTouchStart($event)"
            (touchmove)="onTouchMove($event)"
            (touchend)="onTouchEnd()">
         <div class="scroll-content d-flex">
-          <div class="card lecture-card" *ngFor="let item of lectures">
+          <div class="card lecture-card" *ngFor="let item of lectures"
+          (click)="goToCourseDetails(item)" style="cursor: pointer;">
             <div class="row g-0">
               <div class="col-md-12 video-thumbnail w-100">
 

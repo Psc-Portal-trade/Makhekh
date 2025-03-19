@@ -1,206 +1,313 @@
-/* General Layout */
- /*
-.dashboard {
-    display: flex;
-    height: 100vh;
-  }
-  
-  .container {
-    padding: 10px;
-  }
-  
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .nav-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .nav-item i {
-    margin-right: 10px;
-  }
-  
-  .nav-item a {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .submenu {
-    padding-left: 20px;
-  }
-  
-  .submenu li {
-    padding: 5px 0;
-  }
-  
-
-  .main-content {
-    flex: 1;
-    background: #f4f6f8;
-    padding: 20px;
-  }
-  
-  .qa-container {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-  }
-  
-  .qa-box {
-    border: 1px solid #ddd;
-    padding: 50px;
-    text-align: center;
-    color: #aaa;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
-  
-  .dropdown {
-    font-size: 14px;
-    color: gray;
-    cursor: pointer;
-  }
-  .sidebar {
-    width: 6=80px;
-    background: #007bff;
-    transition: width 0.3s ease-in-out;
-    overflow: hidden;
-  }
-  
-  .sidebar.expanded {
-    width: 220px; 
-  }
-     */
-
-     .sidebar.expanded {
-        width: 200px;
-      }
-      .sidebar {
-        width: 60px; /* أو أي عرض يناسبك */
-        background-color: #3498db; /* لون الخلفية */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* توسيط العناصر أفقيًا */
-        transition: width 0.3s; /* تأثير عند التوسيع */
-        top: 0;
-        left: 0;
-        position: fixed;
-        z-index: 1050;
-    
-      }
-
-      .sidebar1 {
-        width: 300px; /* أو أي عرض يناسبك */
-        background-color: #EFF3F6; /* لون الخلفية */
-        display: flex;
-        transition: width 0.3s; /* تأثير عند التوسيع */
-        top: 0;
-        left: 4.5%;
-        position: fixed;
-        z-index: 1050;
-      }
-      
-      .logo {
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        margin-bottom: 15px; /* مسافة بين اللوجو والعناصر الأخرى */
-    
-      }
-      
-      .list {
-        list-style: none;
-        padding: 0;
-        margin: 30px 0px 0px 0px;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    
-       
-      }
-    
-      .list li {
-        display: flex;
-        flex-direction: row; /* جعل الأيقونة والنص بجانب بعض */
-        align-items: center; /* توسيط العناصر أفقيًا */
-        color: white;
-        padding: 10px 10px 20px 4px;
-        cursor: pointer;
-        gap: 20px; /* مسافة بين الأيقونة والنص */
-    
-        
-      }
-      
-      .list li i {
-        font-size: 25px; /* تكبير الأيقونة */
-      }
-      
-    
-      .list li a{
-      text-decoration: none;   
-      color: white; 
-      }
-    
-      .nav-item {
-        position: relative;
-        display: flex;
-        align-items: center;
-        padding-left: 15px; /* لضمان المساحة الكافية للخط */
-      }
-      .content-item {
-        margin-left: 60px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
-        transition: margin-left 0.3s ease-in-out;
-    }
-    
-    .bi-globe{
-        color: #2D91EE;
-    
-    }
-    
-    .input-group input{
-        background-color: #EFF3F6;
-    }
-    
- 
-      
-      .container .list1{
-        padding-top: 90px;
-      }
 
 
-      h3{
-        font-weight: 500;
-        font-size: 24px;
-        line-height: 28.13px;
-      }
-      
-      .container .list1 ul li {
-        border-bottom: 1px solid #CBC8C8; /* خط سفلي رمادي */
- 
-      }
-      .container .list1 ul {
-       padding-left: 0%; 
-      }   
-       
-
-      li:hover {
-        background:#79baf7 ; /* لون عند تمرير الماوس */
-      }
-      
-
-         .list1 li.active {
-            background: white !important; /* جعل العنصر المحدد أبيض */
-            font-weight: bold;
-          }
 
 
-          a{
-            text-decoration: none;
-          }
+/* وضع عام للغة */
+body[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Sidebar الأساسي */
+.sidebar {
+  width: 60px;
+  background-color: #3498db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: width 0.3s;
+  top: 0;
+  position: fixed;
+  z-index: 1080;
+}
+
+
+/* تحديد موقع الـ Sidebar بناءً على اتجاه الصفحة */
+body[dir="ltr"] .sidebar {
+  left: 0;
+}
+
+body[dir="rtl"] .sidebar {
+  right: 0;
+  left: auto;
+}
+
+/* عندما يكون الـ Sidebar موسع */
+.sidebar.expanded {
+  width: 200px;
+}
+
+/* Sidebar الثاني */
+.sidebar1 {
+  width: 350px;
+  background-color: #EFF3F6;
+  display: flex;
+  transition: width 0.3s;
+  top: 0;
+  position: fixed;
+  z-index: 1050;
+  text-align: right;
+
+
+}
+
+body[dir="ltr"] .sidebar1 {
+  left: 4.5%;  /* زودت المسافة لتحريكها أكثر لليمين */
+}
+
+
+body[dir="rtl"] .sidebar1 {
+  right: 4.5% !important;
+  left: auto;
+
+
+}
+
+/* ضبط القائمة داخل الـ Sidebar */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* تغيير اتجاه الأيقونات والنصوص عند العربية */
+body[dir="rtl"] .list li {
+  flex-direction: row-reverse;
+
+}
+
+/* تعديل أيقونات القائمة */
+ .list li {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 8px 4px 8px 4px;
+  cursor: pointer;
+  gap: 20px;
+  margin-bottom: 10px;
+
+}
+.list1 li {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 12px 5px 12px 4px;
+  cursor: pointer;
+  gap: 20px;
+  width: 100%; /* اجعل العناصر تمتد على العرض بالكامل */
+
+}
+
+.list .nav-item {
+  margin-bottom: 15px; /* تعديل المسافة حسب الحاجة */
+}
+
+.list i {
+  font-size: 26px; /* تغيير الحجم حسب الحاجة */
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* محتوى الصفحة يتحرك حسب اتجاه اللغة */
+.content-item {
+  transition: margin 0.3s ease-in-out;
+}
+
+body[dir="ltr"] .content-item {
+  margin-left: 60px;
+}
+
+body[dir="rtl"] .content-item {
+  margin-right: 60px;
+  margin-left: 0;
+}
+.logo {
+  width: 30px; /* أو أي حجم مناسب */
+  height: auto;
+  max-width: 30px;
+  background-color: white; /* تأكد أنه لا يصبح كبيرًا جدًا */
+  margin-bottom: 15px;
+}
+
+.list li:not(:has(.logo)):hover {
+  background: #79baf7;
+  /* لون عند تمرير الماوس */
+}
+
+
+
+.list1 li.active {
+  background: white !important;
+  /* جعل العنصر المحدد أبيض */
+  font-weight: bold;
+}
+.list1 li:hover {
+  background: #2D91EE !important;
+  /* جعل العنصر المحدد أبيض */
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+
+.nav-item  {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.content-item {
+  margin-left: 60px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.bi-globe{
+  color: #2D91EE;
+
+}
+
+.input-group input{
+  background-color: #EFF3F6;
+}
+
+
+
+.container .list1{
+  padding-top: 90px;
+}
+
+
+h3{
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28.13px;
+}
+
+.container .list1 ul li {
+  border-bottom: 1px solid #CBC8C8; /* خط سفلي رمادي */
+
+}
+
+body[dir="rtl"] .list1 {
+  display: flex;
+  flex-direction: column; /* تأكد من أن العناصر تتراص عموديًا */
+  align-items: flex-start; /* تثبيت العناصر على اليمين */
+}
+
+body[dir="ltr"] .list1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
+
+
+
+
+/* إخفاء الـ Sidebar على الشاشات الصغيرة */
+@media (max-width: 992px) {
+  .sidebar, .sidebar1 {
+    display: none !important;
+  }
+
+  /* إظهار الشريط العلوي الجديد */
+  .top-navbar {
+    display: flex !important;
+  }
+}
+
+/* إظهار القائمة الجانبية في الشاشات الكبيرة */
+@media (min-width: 993px) {
+  .top-navbar {
+    display: none !important;
+  }
+}
+
+/* تنسيق الشريط العلوي الجديد */
+.top-navbar {
+  width: 100%;
+  background-color: #3498db;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.top-navbar .nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.top-navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.top-navbar .menu-icon {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+/* شريط الناف بار العلوي */
+.top-navbar {
+  width: 100%;
+  background-color: #3498db;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+/* زر القائمة */
+.menu-icon {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* القائمة المنسدلة */
+.dropdown-menu-custom {
+  position: absolute;
+  top: 50px; /* يظهر تحت الزر */
+  left: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 200px;
+}
+
+/* تنسيق الروابط */
+.dropdown-menu-custom a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.dropdown-menu-custom a:hover {
+  background-color: #f0f0f0;
+}

@@ -2,9 +2,12 @@ import { Component , HostListener,AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { WishlistService } from '../../services/wishlist.service';
+import { Router } from '@angular/router';
+import { CourseInformationService } from '../../services/course-information.service';
+import { TranslocoPipe } from '@ngneat/transloco';
 @Component({
   selector: 'app-featured-courses',
-  imports: [CommonModule],
+  imports: [CommonModule,TranslocoPipe],
   templateUrl: './featured-courses.component.html',
   styleUrl: './featured-courses.component.css'
 })
@@ -688,7 +691,7 @@ export class FeaturedCoursesComponent  implements OnInit{
 
   ];
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService) {}
+  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
   ngOnInit() {
     this.lectures.forEach(course => {
       course.isInCart = this.cartService.isItemInCart(course.id);
@@ -712,6 +715,10 @@ export class FeaturedCoursesComponent  implements OnInit{
     });
 
 
+  }
+  goToCourseDetails(course: any) {
+    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+    this.router.navigate(['course-Information']); // الانتقال إلى صفحة التفاصيل
   }
 
   addToCart(course: any) {

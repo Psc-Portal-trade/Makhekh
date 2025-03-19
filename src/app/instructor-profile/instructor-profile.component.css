@@ -63,7 +63,7 @@
     padding-left: 15px; /* لضمان المساحة الكافية للخط */
   }
   .content-item {
-    margin-left: 60px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
+    margin-left: 80px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
     transition: margin-left 0.3s ease-in-out;
 }
 
@@ -180,4 +180,15 @@ ul {
 }
 .second-sec a{
   cursor: pointer;
+}
+
+
+@media (max-width: 993px) {
+  .content-item {
+    margin-top: 70px;
+  }
+  .content-item {
+    margin-left: 30px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
+    transition: margin-left 0.3s ease-in-out;
+}
 }

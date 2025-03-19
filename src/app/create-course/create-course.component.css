@@ -160,3 +160,8 @@ ul {
 .second-sec a{
   cursor: pointer;
 }
+/* @media (max-width: 993px) {
+  .content-item {
+    margin-top: 70px;
+  }
+} */
