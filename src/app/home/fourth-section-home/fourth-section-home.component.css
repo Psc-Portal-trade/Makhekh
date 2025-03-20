@@ -1,5 +1,6 @@
 section {
   background-color: #eff3f6;
+  overflow: hidden;
 }
 
 .testimonial-card {
@@ -14,9 +15,6 @@ section {
 }
 
 .testimonial-card img {
-  /* width: 80px;
-  height: 80px; */
-  /* border-radius: 50%; */
   margin-bottom: 15px;
 }
 
@@ -61,15 +59,37 @@ section {
   overflow: visible;
 }
 
-/* إخفاء الأزرار في الشاشات الأصغر من 630px */
 @media (max-width: 630px) {
   .carousel-control-prev,
   .carousel-control-next {
     display: none;
   }
 
-  /* منع التمرير الأفقي */
   body {
     overflow-x: hidden;
   }
 }
+/* .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #007bff;
+            border-radius: 50%;
+            padding: 10px;
+        }
+        .carousel-control-prev {
+          left: -100px;
+      }
+      .carousel-control-next {
+          right: -100px;
+      }
+.card img{
+  width: 30%;
+  text-align: center;
+  position: relative;
+  z-index: 11;
+}
+.card{
+  overflow: auto;
+}
+.bg-card{
+  background-color: #2d91ee;
+} */
